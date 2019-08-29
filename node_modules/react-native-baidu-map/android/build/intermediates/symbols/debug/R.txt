@@ -1,0 +1,3 @@
+int drawable popup 0x7f080001
+int layout layout_marker 0x7f0e0001
+int mipmap icon_gcoding 0x7f100001
