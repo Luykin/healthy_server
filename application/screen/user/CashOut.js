@@ -1,5 +1,16 @@
 import React, {Component} from 'react';
-import {Platform,StyleSheet, Text, View,ScrollView,TouchableOpacity,StatusBar,TextInput,Image} from 'react-native';
+import {
+    Platform,
+    StyleSheet,
+    Text,
+    View,
+    ScrollView,
+    TouchableOpacity,
+    StatusBar,
+    TextInput,
+    Image,
+    default as Alert
+} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {createStackNavigator} from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
@@ -43,11 +54,9 @@ export class CashOutView extends Component{
                     uMoney:res.data.balance || 0
                 })
             }else{
-                Alert.alert(res.msg || '查询钱包出错')
             }
         }).catch(e=>{
             callback()
-            Alert.alert('查询钱包出错')
         })
     }
 
@@ -57,7 +66,7 @@ export class CashOutView extends Component{
     render(){
         const  {navigate}  = this.props.navigation;
         return (
-            <ScrollView style={[styles.container]} contentContainerStyle={{}}>
+            <ScrollView style={[styles.container]}>
                 {/*<View style={styles.input}>*/}
                 {/*    <Text style={styles.label}>姓名</Text>*/}
                 {/*    <TextInput placeholder="请输入姓名" style={{width:"80%",}} onChangeText={(uName)=>this.setState({uName})} />*/}
@@ -104,40 +113,40 @@ const headerStyle = {
         fontSize: 15
     }
 };
-export default CashOut = createStackNavigator ({
-    CashOutHome:{
-        screen:CashOutView,
-        navigationOptions:({navigation})=>({
-            headerTitle : navigation.getParam("name","提现"),
-            headerStyle:headerStyle.style,
-            headerTitleStyle:headerStyle.titleStyle,
-            headerTintColor:'#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={()=>{
-                    navigation.pop();
-                }}>
-                    <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')} style={{width:ScreenUtil.scaleSize(30),height:ScreenUtil.scaleSize(30)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <TouchableOpacity onPress={()=>{
-                    navigation.navigate("CashOutLog");
-                }}>
-                    <View style={{marginRight:ScreenUtil.scaleSize(24)}}>
-                        <Text>提现记录</Text>
-                    </View>
-                </TouchableOpacity>
-        })
-    },
-
-},{
-    initialRouteName:'CashOutHome',
-    transitionConfig:()=>({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
+// export default CashOut = createStackNavigator ({
+//     CashOutHome:{
+//         screen:CashOutView,
+//         navigationOptions:({navigation})=>({
+//             headerTitle : navigation.getParam("name","提现"),
+//             headerStyle:headerStyle.style,
+//             headerTitleStyle:headerStyle.titleStyle,
+//             headerTintColor:'#FFF',
+//             headerLeft:
+//                 <TouchableOpacity onPress={()=>{
+//                     navigation.pop();
+//                 }}>
+//                     <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
+//                         <Image resizeMode="contain" source={require('../../static/icons/16.png')} style={{width:ScreenUtil.scaleSize(30),height:ScreenUtil.scaleSize(30)}}/>
+//                     </View>
+//                 </TouchableOpacity>
+//             ,
+//             headerRight:
+//                 <TouchableOpacity onPress={()=>{
+//                     navigation.navigate("CashOutLog");
+//                 }}>
+//                     <View style={{marginRight:ScreenUtil.scaleSize(24)}}>
+//                         <Text>提现记录</Text>
+//                     </View>
+//                 </TouchableOpacity>
+//         })
+//     },
+//
+// },{
+//     initialRouteName:'CashOutHome',
+//     transitionConfig:()=>({
+//         screenInterpolator: StackViewStyleInterpolator.forHorizontal,
+//     })
+// })
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'#f5f6f5',

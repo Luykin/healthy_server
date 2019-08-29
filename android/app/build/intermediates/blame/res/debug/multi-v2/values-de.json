@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mac/Documents/nurse/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml",
+            "outputFile": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml",
             "map": [
                 {
                     "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1b15093487312af7f628c38a37c52a59/res/values-de/values-de.xml",

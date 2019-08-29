@@ -1,4 +1,4 @@
-# Referenced at /Users/mac/Documents/nurse/android/app/build/intermediates/merged_manifests/debug/armeabi-v7a/AndroidManifest.xml:29
+# Referenced at /Users/mac/Documents/work/nurse/android/app/build/intermediates/merged_manifests/debug/armeabi-v7a/AndroidManifest.xml:29
 -keep class android.support.v4.app.CoreComponentFactory { <init>(); }
-# Referenced at /Users/mac/Documents/nurse/android/app/build/intermediates/merged_manifests/debug/armeabi-v7a/AndroidManifest.xml:29
+# Referenced at /Users/mac/Documents/work/nurse/android/app/build/intermediates/merged_manifests/debug/armeabi-v7a/AndroidManifest.xml:29
 -keep class com.hugong.MainApplication { <init>(); }

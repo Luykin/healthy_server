@@ -15,10 +15,9 @@ import {
     } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import {createSwitchNavigator,createAppContainer} from 'react-navigation';
-
 import LoginScreen from './application/screen/LoginScreen';
 import MainScreen from './application/screen/MainScreen';
-
+import NavigationUtil from './application/navigator/NavigationUtil';
 /*
 YellowBox.ignoreWarnings([
       'Warning: ViewPagerAndroid has been extracted',
@@ -30,13 +29,13 @@ class AuthLoadingScreen extends Component{
     constructor(props) {
         super(props);
         this._bootstrapAsync();
-        //AsyncStorage.clear();
     }
     _bootstrapAsync = async () => {
         let token = await AsyncStorage.getItem('token');
         this.props.navigation.navigate(token ? 'Main' : 'Auth');
-    }
+    };
     render() {
+        NavigationUtil.navigation = this.props.navigation;
         return (
                 <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
                 <ActivityIndicator />
