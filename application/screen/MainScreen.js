@@ -82,9 +82,7 @@ export default createStackNavigator({
     //会员中心
     UCenter: {
         screen: UCenter,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '个人中心'},
     },
     //个人设置
     Setting: {
@@ -117,9 +115,20 @@ export default createStackNavigator({
     //我的钱包
     MoneyBag: {
         screen: MoneyBag,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: () => {
+            return {
+                ...navigationOptions,
+                headerTitle: '我的钱包',
+                headerRight: _renderRight(
+                    <TouchableOpacity onPress={() => {
+                        NavigationUtil.goPage({}, 'CashOut');
+                    }}>
+                        <Text style={styles.rightText}>
+                            提现
+                        </Text>
+                    </TouchableOpacity>)
+            }
+        },
     },
     //提现
     CashOut: {
@@ -188,7 +197,7 @@ export default createStackNavigator({
 const styles = StyleSheet.create({
     rightText: {
         paddingRight: 10,
-        fontSize: 12,
+        fontSize: 14,
         color: '#353535',
     },
 });

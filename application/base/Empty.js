@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
     emptyWarp: {
         width: '100%',
         justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginLeft: 'auto',
         marginRight: 'auto',
-        height: 200,
+        height: 100,
         backgroundColor: '#ffffff',
     },
 });

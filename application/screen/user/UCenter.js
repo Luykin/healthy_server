@@ -21,11 +21,12 @@ import CardView from 'react-native-cardview';
 
 import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI, DATA_API} from "../../common/ScreenUtil";
 import {walletQuery} from "../../api";
+import Empty from "../../base/Empty";
 
 /*
 * 主页
 */
-export class UCenterView extends Component {
+export default class UCenter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -92,7 +93,7 @@ export class UCenterView extends Component {
             .then(response => response.json())
             .then(responseJson => {
 
-                if (responseJson.code == 0) {
+                if (responseJson.code === 0) {
                     this.setState({
                         yearOrders: responseJson.data.yearOrders,
                         monthOrders: responseJson.data.monthOrders,
@@ -220,7 +221,8 @@ export class UCenterView extends Component {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                 }}>
-                                    <Text style={{fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>
+                                    {/*<Text style={{fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>*/}
+                                   <Empty/>
                                 </View>
                             )
                         }}
@@ -258,47 +260,6 @@ export class UCenterView extends Component {
     }
 }
 
-//头样式
-const headerStyle = {
-    style: {
-        textAlign: 'center',
-        height: ScreenUtil.scaleSize(120),
-        borderBottomWidth: 0,
-        shadowOpacity: 0,
-        elevation: 0,
-        backgroundColor: "#FFF"
-    },
-    titleStyle: {flex: 1, textAlign: 'center', color: '#000', alignItems: "center", fontSize: ScreenUtil.scaleSize(42)}
-}
-export default UCenter = createStackNavigator({
-    UcHome: {
-        screen: UCenterView,
-        navigationOptions: ({navigation}) => ({
-            headerTitle: navigation.getParam("name", "个人中心"),
-            headerStyle: headerStyle.style,
-            headerTitleStyle: headerStyle.titleStyle,
-            headerTintColor: '#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={() => {
-                    navigation.pop();
-                }}>
-                    <View style={{marginLeft: ScreenUtil.scaleSize(10), padding: ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')}
-                               style={{width: ScreenUtil.scaleSize(30), height: ScreenUtil.scaleSize(30)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <View/>
-        })
-    },
-
-}, {
-    initialRouteName: 'UcHome',
-    transitionConfig: () => ({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#f5f6f5',
@@ -330,7 +291,7 @@ const styles = StyleSheet.create({
     },
     list: {
         backgroundColor: "#FFF",
-        //width:"100%",
+        width:"100%",
         marginTop: ScreenUtil.scaleSize(20),
         paddingBottom: ScreenUtil.scaleSize(30)
     },

@@ -30,6 +30,7 @@ import SwitchSelector from "react-native-switch-selector";
 
 import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI,DATA_API} from "../../common/ScreenUtil";
 import NavigationUtil from "../../navigator/NavigationUtil";
+import Empty from "../../base/Empty";
 
 /*
 * 主页
@@ -580,7 +581,8 @@ export class HomeView extends Component{
                     ListEmptyComponent={()=>{
                         return(
                             <View style={{backgroundColor:"#fff", height: '100%',alignItems: 'center',justifyContent: 'center',}}>
-                                <Text style={{ fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>
+                                {/*//<Text style={{ fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>*/}
+                                <Empty/>
                             </View>
                         )
                     }}

@@ -5,6 +5,7 @@ import {createStackNavigator} from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
 import moment from 'moment';
 import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI} from "../../common/ScreenUtil";
+import Empty from "../../base/Empty";
 
 /**
  "balance": "165.82",
@@ -283,7 +284,7 @@ import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI} from "../../common/Scree
 /*
 * 主页
 */
-export class MoneyBagView extends Component{
+export default class MoneyBag extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -296,11 +297,7 @@ export class MoneyBagView extends Component{
         }
     }
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('dark-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#fff');
-        });
-        
+
         this.getMoneyBag((data)=>{
             if(data){
                 this.setState({
@@ -314,12 +311,12 @@ export class MoneyBagView extends Component{
                     refreshing:false
                 })
             }
-            
+
         });
-        
+
     }
     componentWillUnmount() {
-        this._navListener.remove();
+
     }
     //加载数据  1全部 2待服务 3已完成
     _loadData(type_id = 1){
@@ -346,7 +343,7 @@ export class MoneyBagView extends Component{
         })
     }
     render(){
-        if(this.state.loaded == false){
+        if(!this.state.loaded){
             return (
                 <ActivityIndicator size="large" color="#FB8703"/>
             )
@@ -387,9 +384,7 @@ export class MoneyBagView extends Component{
                     }}
                     ListEmptyComponent={()=>{
                         return(
-                            <View style={{ height: '100%',alignItems: 'center',justifyContent: 'center',}}>
-                                <Text style={{ fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>
-                            </View>
+                            <Empty/>
                         )
                     }}
                     renderItem={({item,index})=>(
@@ -416,56 +411,7 @@ export class MoneyBagView extends Component{
         )
     }
 }
-//头样式
-const headerStyle = {
-    style:{
-        textAlign:'center',
-        height:ScreenUtil.scaleSize(120),
-        borderBottomWidth:0,
-        shadowOpacity:0,
-        elevation:0,
-        backgroundColor:"#fff"},
-    titleStyle:{
-        flex:1,
-        textAlign:'center',
-        color:'#000',
-        alignItems:"center",
-        fontSize:ScreenUtil.scaleSize(42)}
-}
-export default MoneyBag = createStackNavigator ({
-    MoneyBagH:{
-        screen:MoneyBagView,
-        navigationOptions:({navigation})=>({
-            headerTitle : navigation.getParam("name","我的钱包"),
-            headerStyle:headerStyle.style,
-            headerTitleStyle:headerStyle.titleStyle,
-            headerTintColor:'#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={()=>{
-                    navigation.pop();
-                }}>
-                    <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')} style={{width:ScreenUtil.scaleSize(30),height:ScreenUtil.scaleSize(30),}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <TouchableOpacity onPress={()=>{
-                    navigation.navigate("CashOut",{});
-                }}>
-                    <View style={{marginRight:ScreenUtil.scaleSize(24)}}>
-                        <Text>提现</Text>
-                    </View>
-                </TouchableOpacity>
-        })
-    },
 
-},{
-    initialRouteName:'MoneyBagH',
-    transitionConfig:()=>({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'#FFF',
@@ -474,18 +420,21 @@ const styles = StyleSheet.create({
         backgroundColor:"#FFCC66",
         width:"96%",
         height:ScreenUtil.scaleSize(350),
-        borderRadius:ScreenUtil.scaleSize(5),
+        borderRadius: 8,
         justifyContent:"space-between",
-        paddingTop:ScreenUtil.scaleSize(30)
+        paddingTop:ScreenUtil.scaleSize(30),
+        overflow: 'hidden'
     },
     accountTitle:{
-        color:"#FFF",fontSize:ScreenUtil.scaleSize(42)
+        color:"#FFF",
+        fontSize: 15
     },
     account:{
-        color:"#fff",fontSize:ScreenUtil.scaleSize(72)
+        color:"#fff",
+        fontSize: 30
     },
     list:{
-        flexDirection:"row",justifyContent:"space-between",borderTopWidth:0.9,borderTopColor:"#fff"
+        flexDirection:"row",justifyContent:"space-between",borderTopWidth:0.9,borderTopColor:"#f8f3e5"
     },
     list_left:{
         height:ScreenUtil.scaleSize(80),
