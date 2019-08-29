@@ -1,0 +1,4 @@
+org.lovebing.reactnative.baidumap
+drawable popup
+layout layout_marker
+mipmap icon_gcoding

@@ -27,8 +27,9 @@ export default class CashOutView extends Component{
         // this.getMoneyBag();
         // this._navListener = this.props.navigation.addListener('didFocus', () => {
         //    StatusBar.setBarStyle('dark-content');
-        //    // (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
-        // });
+        if (Platform.OS === 'android') {
+            StatusBar.setBackgroundColor('#3E93FF');
+        }
 
     }
 
