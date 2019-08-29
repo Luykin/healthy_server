@@ -110,7 +110,7 @@ export class HomeView extends Component{
             10000
         );
         this._getLocal();
-        NavigationUtil.goPage({}, 'CashOutLog')
+        NavigationUtil.goPage({}, 'CashSuc')
     }
     //获取经伟度
      _getLocal(){

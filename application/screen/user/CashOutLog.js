@@ -5,7 +5,7 @@ import {walletQuery} from "../../api";
 import DatePicker from "react-native-datepicker";
 import comStyles from "../../assets/styles/comStyles";
 
-const ITEM_HEIGHT = 60;
+const ITEM_HEIGHT = 80;
 const ITEM_MARGIN_TOP = 1;
 const HEADER_HEIGHT = 60;
 export default class CashOutLog extends Component {
@@ -46,42 +46,42 @@ export default class CashOutLog extends Component {
         return (
             <View style={styles.container}>
                 <View style={[comStyles.flex, styles.colHeader]}>
-                    {/*<View>*/}
-                    {/*    <DatePicker*/}
-                    {/*        style={{width: 120, height: 40, lineHeight: 40}}*/}
-                    {/*        date={this.state.date}*/}
-                    {/*        mode="date"*/}
-                    {/*        placeholder={this.state.date}*/}
-                    {/*        format="YYYY年MM月"*/}
-                    {/*        minDate="2019-01"*/}
-                    {/*        maxDate="2024-12"*/}
-                    {/*        confirmBtnText="确定"*/}
-                    {/*        cancelBtnText="取消"*/}
-                    {/*        showIcon={false}*/}
-                    {/*        androidMode={'spinner'}*/}
-                    {/*        customStyles={{*/}
-                    {/*            dateInput: {*/}
-                    {/*                borderWidth: 0,*/}
-                    {/*            },*/}
-                    {/*            dateText: {*/}
-                    {/*                fontWeight: '600',*/}
-                    {/*                fontSize: 15,*/}
-                    {/*                color: '#353535'*/}
-                    {/*            }*/}
-                    {/*        }}*/}
-                    {/*        onDateChange={(date) => {*/}
-                    {/*            this.setState({date: date})*/}
-                    {/*        }}*/}
-                    {/*    />*/}
-                    {/*</View>*/}
+                    <View>
+                        <DatePicker
+                            style={{width: 120, height: 40, lineHeight: 40}}
+                            date={this.state.date}
+                            mode="date"
+                            placeholder={this.state.date}
+                            format="YYYY年MM月"
+                            minDate="2019-01"
+                            maxDate="2024-12"
+                            confirmBtnText="确定"
+                            cancelBtnText="取消"
+                            showIcon={false}
+                            androidMode={'spinner'}
+                            customStyles={{
+                                dateInput: {
+                                    borderWidth: 0,
+                                },
+                                dateText: {
+                                    fontWeight: '600',
+                                    fontSize: 15,
+                                    color: '#353535'
+                                }
+                            }}
+                            onDateChange={(date) => {
+                                this.setState({date: date})
+                            }}
+                        />
+                    </View>
                 </View>
-                {/*<Picker*/}
-                {/*    selectedValue={this.state.language}*/}
-                {/*    style={{ height: 50, width: 100 }}*/}
-                {/*    onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>*/}
-                {/*    <Picker.Item label="Java" value="java" />*/}
-                {/*    <Picker.Item label="JavaScript" value="js" />*/}
-                {/*</Picker>*/}
+                <View style={[comStyles.flex, styles.colItemWrap]}>
+                    <View style={styles.ciLeft}>
+                        <Text style={styles.ciLabel}>余额提现到微信</Text>
+                        <Text style={styles.ciTime}>6月12日 13:00</Text>
+                    </View>
+                    <Text style={styles.ciRight}> +100.00</Text>
+                </View>
                 <ListGeneral
                     style={{flex: 1}}
                     ref={(ref) => {
@@ -126,4 +126,35 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f8f8',
         justifyContent: 'flex-start'
     },
+    colItemWrap: {
+        height: ITEM_HEIGHT,
+        marginTop: ITEM_MARGIN_TOP,
+        borderBottomColor: '#eee',
+        borderBottomWidth: 1,
+        paddingLeft: 20,
+        paddingRight: 20
+    },
+    ciLeft: {
+        flex: 1
+    },
+    ciLabel: {
+        height: 40,
+        lineHeight: 40,
+        fontWeight: '600',
+        fontSize: 14,
+        color: '#353535',
+    },
+    ciTime: {
+        color: '#999',
+        fontSize: 10
+    },
+    ciRight: {
+        width: 100,
+        textAlign: 'center',
+        lineHeight: ITEM_HEIGHT,
+        fontWeight: '600',
+        fontSize: 15,
+        color: '#353535',
+    },
+
 });
