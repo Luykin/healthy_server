@@ -16,7 +16,6 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
-import global from "../api/global";
 import HomeScreen from "./home/HomeScreen";
 import UCenter from "./user/UCenter";
 import Setting from "./user/Setting";
@@ -144,9 +143,9 @@ export default createStackNavigator({
             return {
                 ...navigationOptions,
                 headerTitle: '提现',
-                headerRight: _renderRight(<Text>
-                    提现记录
-                </Text>)
+                // headerRight: _renderRight(<Text>
+                //     提现记录
+                // </Text>)
             }
         },
     },

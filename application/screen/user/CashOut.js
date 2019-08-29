@@ -11,17 +11,9 @@ import {
     Image,
     default as Alert
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import {createStackNavigator} from 'react-navigation';
-import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
 
 
-import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI} from "../../common/ScreenUtil";
-
-/*
-* 主页
-*/
-export class CashOutView extends Component{
+export default class CashOutView extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -29,44 +21,43 @@ export class CashOutView extends Component{
             uCard:'',
             uBank:'',
             uMoney:''
-        }
-        this.onBtnTiXian = this.onBtnTiXian.bind(this);
+        };
     }
     componentDidMount() {
-        this.getMoneyBag();
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('dark-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
-        });
+        // this.getMoneyBag();
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //    StatusBar.setBarStyle('dark-content');
+        //    // (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
+        // });
 
     }
 
-    getMoneyBag = async (callback)=>{
-        const self = this;
-        let token  = await AsyncStorage.getItem("token");
-        fetch(SZ_API_URI+'/app/api/v1/wallet/query',{
-            headers:{
-                "token" : token
-            }
-        }).then(res=>res.json()).then(res=>{
-            if(res.code == 200){
-                self.setState({
-                    uMoney:res.data.balance || 0
-                })
-            }else{
-            }
-        }).catch(e=>{
-            callback()
-        })
-    }
+    // getMoneyBag = async (callback)=>{
+    //     const self = this;
+    //     let token  = await AsyncStorage.getItem("token");
+    //     fetch(SZ_API_URI+'/app/api/v1/wallet/query',{
+    //         headers:{
+    //             "token" : token
+    //         }
+    //     }).then(res=>res.json()).then(res=>{
+    //         if(res.code == 200){
+    //             self.setState({
+    //                 uMoney:res.data.balance || 0
+    //             })
+    //         }else{
+    //         }
+    //     }).catch(e=>{
+    //         callback()
+    //     })
+    // }
 
     componentWillUnmount() {
-        this._navListener.remove();
+        // this._navListener.remove();
     }
     render(){
-        const  {navigate}  = this.props.navigation;
         return (
             <ScrollView style={[styles.container]}>
+
                 {/*<View style={styles.input}>*/}
                 {/*    <Text style={styles.label}>姓名</Text>*/}
                 {/*    <TextInput placeholder="请输入姓名" style={{width:"80%",}} onChangeText={(uName)=>this.setState({uName})} />*/}
@@ -92,27 +83,7 @@ export class CashOutView extends Component{
             </ScrollView>
         )
     }
-
-    onBtnTiXian(){}
 }
-//头样式
-const headerStyle = {
-    style:{
-        textAlign:'center',
-        height:ScreenUtil.scaleSize(120),
-        borderBottomWidth:0,
-        shadowOpacity:0,
-        elevation:0,
-        backgroundColor:"#FFF"
-    },
-    titleStyle: {
-        flex: 1,
-        textAlign: 'center',
-        color: '#000',
-        alignItems: "center",
-        fontSize: 15
-    }
-};
 // export default CashOut = createStackNavigator ({
 //     CashOutHome:{
 //         screen:CashOutView,
@@ -151,18 +122,4 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor:'#f5f6f5',
     },
-    input:{
-        flexDirection:"row",
-        alignItems:"center",
-        backgroundColor:"#fff",
-        height:ScreenUtil.scaleSize(140),
-        lineHeight:ScreenUtil.scaleSize(140),
-        marginTop:ScreenUtil.scaleSize(30),
-        paddingHorizontal:ScreenUtil.scaleSize(30),
-        borderBottomWidth:StyleSheet.hairlineWidth,
-        borderBottomColor:"#ccc"
-    },
-    label:{
-        fontSize:ScreenUtil.scaleSize(36),color:"#000",fontWeight:"bold"
-    }
-})
+});

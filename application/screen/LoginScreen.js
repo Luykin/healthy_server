@@ -52,7 +52,7 @@ export class LoginView extends Component{
     //alert('Keyboard Hidden');
   }
     _loginOnPress(){
-        
+
         if(!this.state.username){
             Alert.alert("请输入手机号码");
             return;
@@ -85,10 +85,10 @@ export class LoginView extends Component{
 
             let userInfo = {};
             userInfo = responseJson.data.user;
-            //console.log(responseJson);
             AsyncStorage.setItem("token",token);
             AsyncStorage.setItem("userInfo",JSON.stringify(userInfo));
             AsyncStorage.setItem("userData",JSON.stringify(responseJson.data));
+            console.log(responseJson.data, '用户信息');
             this.props.navigation.navigate("Main");
         }).catch(error => {
             console.error(error);
@@ -170,7 +170,7 @@ export class LoginView extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'center',paddingHorizontal:'20%',marginTop:ScreenUtil.scaleSize(30)}}>
-                    
+
                 <TouchableOpacity onPress={
                         ()=>{
                             navigate("Regist")

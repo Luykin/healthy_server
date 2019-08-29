@@ -63,7 +63,6 @@ export class HomeView extends Component{
 
     }
     async componentDidMount() {
-
         this._navListener = this.props.navigation.addListener('didFocus', () => {
            StatusBar.setBarStyle('light-content');
            (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');

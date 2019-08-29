@@ -39,10 +39,19 @@ function netAxios(url, data, method, loadingDelay = 200 /*loading 显示延时, 
     })
 }
 
-/*钱包查询*/
+/*用户信息查询*/
+export function updateUserInfo() {
+    let data = {};
+    return netAxios(`${SZ_API_URI}/appauth`, data, 'post')
+}
+
+
+
+
+/*wallet查询*/
 export function walletQuery(name) {
     let data = {
         name
     };
-    return netAxios(`${SZ_API_URI}wallet/query`, data, 'get')
+    return netAxios(`${SZ_API_URI}/app/api/v1/wallet/query`, data, 'get')
 }

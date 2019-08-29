@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import {setToken} from "./index";
-console.log('zdddd')
 /*不同的页面，都监听一次改变*/
 let localObj = {};
 let global = {
