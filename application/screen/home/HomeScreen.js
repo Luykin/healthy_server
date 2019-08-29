@@ -29,6 +29,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import SwitchSelector from "react-native-switch-selector";
 
 import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI,DATA_API} from "../../common/ScreenUtil";
+import NavigationUtil from "../../navigator/NavigationUtil";
 
 /*
 * 主页
@@ -109,7 +110,7 @@ export class HomeView extends Component{
             10000
         );
         this._getLocal();
-
+        NavigationUtil.goPage({}, 'CashOutLog')
     }
     //获取经伟度
      _getLocal(){

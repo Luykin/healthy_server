@@ -38,7 +38,6 @@ export class UserDetailView extends Component{
             id_img2:"",
             name:"",
             id_num:"",
-            sex:1,
             id_card_img_z : require("../../static/icons/card1.png"),
             id_card_img_f : require("../../static/icons/card2.png")
         }

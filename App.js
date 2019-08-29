@@ -64,7 +64,7 @@ class AuthLoadingScreen extends Component {
 
     _bootstrapAsync = async () => {
         let token = await AsyncStorage.getItem('token');
-        token && DeviceEventEmitter.emit('updateUserInfo', true);
+        //token && DeviceEventEmitter.emit('updateUserInfo', true);
         this.props.navigation.navigate(token ? 'Main' : 'Auth');
     };
 

@@ -1,121 +1,129 @@
 import React, {Component} from 'react';
-import {Platform,StyleSheet, Text, View,ScrollView,TouchableOpacity,StatusBar,FlatList,Image} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import {createStackNavigator} from 'react-navigation';
-import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
+import {Picker, StyleSheet, Text, View, ScrollView, TouchableOpacity, StatusBar, FlatList, Image} from 'react-native';
+import ListGeneral from "../../base/ListGeneral";
+import {walletQuery} from "../../api";
+import DatePicker from "react-native-datepicker";
+import comStyles from "../../assets/styles/comStyles";
 
+const ITEM_HEIGHT = 60;
+const ITEM_MARGIN_TOP = 1;
+const HEADER_HEIGHT = 60;
+export default class CashOutLog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            list: [],
+            date: "2016-05"
+        }
+    }
 
-import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI} from "../../common/ScreenUtil";
-
-/*
-* 主页
-*/
-export class CashOutLogView extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-        }
-    }
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('light-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
-        });
 
     }
+
     componentWillUnmount() {
-        this._navListener.remove();
+
     }
-    render(){
-        const  {navigate}  = this.props.navigation;
+
+    _renderHeader() {
+        return (
+            <View>header</View>
+        )
+    }
+
+    _renderIndexPath({section: section, row: row}) {
+        const item = this.state.list[section].items[row];
         return (
             <View>
-                <FlatList
-                    data={[{key: 'a'}, {key: 'b'}]}
-                    keyExtractor={(item,index)=>{
-                        return "key" +  index
+                <TouchableOpacity style={[{height: ITEM_HEIGHT, marginTop: ITEM_MARGIN_TOP}]}>
+                    <Text>{row}</Text>
+                </TouchableOpacity>
+            </View>
+        )
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={[comStyles.flex, styles.colHeader]}>
+                    {/*<View>*/}
+                    {/*    <DatePicker*/}
+                    {/*        style={{width: 120, height: 40, lineHeight: 40}}*/}
+                    {/*        date={this.state.date}*/}
+                    {/*        mode="date"*/}
+                    {/*        placeholder={this.state.date}*/}
+                    {/*        format="YYYY年MM月"*/}
+                    {/*        minDate="2019-01"*/}
+                    {/*        maxDate="2024-12"*/}
+                    {/*        confirmBtnText="确定"*/}
+                    {/*        cancelBtnText="取消"*/}
+                    {/*        showIcon={false}*/}
+                    {/*        androidMode={'spinner'}*/}
+                    {/*        customStyles={{*/}
+                    {/*            dateInput: {*/}
+                    {/*                borderWidth: 0,*/}
+                    {/*            },*/}
+                    {/*            dateText: {*/}
+                    {/*                fontWeight: '600',*/}
+                    {/*                fontSize: 15,*/}
+                    {/*                color: '#353535'*/}
+                    {/*            }*/}
+                    {/*        }}*/}
+                    {/*        onDateChange={(date) => {*/}
+                    {/*            this.setState({date: date})*/}
+                    {/*        }}*/}
+                    {/*    />*/}
+                    {/*</View>*/}
+                </View>
+                {/*<Picker*/}
+                {/*    selectedValue={this.state.language}*/}
+                {/*    style={{ height: 50, width: 100 }}*/}
+                {/*    onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>*/}
+                {/*    <Picker.Item label="Java" value="java" />*/}
+                {/*    <Picker.Item label="JavaScript" value="js" />*/}
+                {/*</Picker>*/}
+                <ListGeneral
+                    style={{flex: 1}}
+                    ref={(ref) => {
+                        this[`_list`] = ref
                     }}
-                    renderItem={({item}) =>
-                        <View style={{
-                            paddingHorizontal:ScreenUtil.scaleSize(30),
-                            marginTop:ScreenUtil.scaleSize(60),
-                            flexDirection:"row",
-                            justifyContent:"space-between",
-                            }}>
-                            <View style={{justifyContent:"space-between",paddingVertical:ScreenUtil.scaleSize(10)}}>
-                                <Text style={{fontSize:ScreenUtil.scaleSize(30),fontWeight:"bold",color:"#000"}}>工作消息</Text>
-                                <Text numberOfLines={1} ellipsizeMode="tail">您已接受新订单，服务地址：莱山区</Text>
-                            </View>
+                    formatData={(results) => {
+                        return results
+                    }}
+                    itemHeight={ITEM_HEIGHT} //每一项的高度
+                    itemMarginTop={ITEM_MARGIN_TOP} //每一项的marginTop
+                    getList={async (page, num, callback) => {
+                        const ret = await walletQuery(page, num);
+                        console.log(ret);
+                        if (ret.code === 200) {
+                            callback(ret.data.list.list);
+                        } else {
+                            callback()
+                        }
+                    }} //获取列表的api
+                    renderItem={(item) => {
+                        return (
                             <View>
-                                <Text>12-11</Text>
+                                <TouchableOpacity activeOpacity={.9}>
+                                    <Text>1</Text>
+                                </TouchableOpacity>
                             </View>
-                        </View>
-                    }
+                        )
+                    }} //渲染每一项的UI
                 />
             </View>
         )
     }
 }
-//头样式
-const headerStyle = {
-    style:{
-        textAlign:'center',
-        height:ScreenUtil.scaleSize(120),
-        borderBottomWidth:0,
-        shadowOpacity:0,
-        elevation:0,
-        backgroundColor:"#0071ff"},
-    titleStyle:{
-        flex:1,
-        textAlign:'center',
-        color:'#ffffff',
-        alignItems:"center",
-        fontSize:ScreenUtil.scaleSize(42)}
-}
-export default CashOutLog = createStackNavigator ({
-    CashOutLogHome:{
-        screen:CashOutLogView,
-        navigationOptions:({navigation})=>({
-            headerTitle : navigation.getParam("name","提现记录"),
-            headerStyle:headerStyle.style,
-            headerTitleStyle:headerStyle.titleStyle,
-            headerTintColor:'#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={()=>{
-                    navigation.pop();
-                }}>
-                    <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/left_write.png')} style={{width:ScreenUtil.scaleSize(40),height:ScreenUtil.scaleSize(40)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <View />
-        })
-    },
 
-},{
-    initialRouteName:'CashOutLogHome',
-    transitionConfig:()=>({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
+
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'#f5f6f5',
+        flex: 1,
     },
-    input:{
-        flexDirection:"row",
-        alignItems:"center",
-        backgroundColor:"#fff",
-        height:ScreenUtil.scaleSize(140),
-        lineHeight:ScreenUtil.scaleSize(140),
-        marginTop:ScreenUtil.scaleSize(30),
-        paddingHorizontal:ScreenUtil.scaleSize(30),
-        borderBottomWidth:StyleSheet.hairlineWidth,
-        borderBottomColor:"#ccc"
+    colHeader: {
+        height: HEADER_HEIGHT,
+        backgroundColor: '#f8f8f8',
+        justifyContent: 'flex-start'
     },
-    label:{
-        fontSize:ScreenUtil.scaleSize(36),color:"#000",fontWeight:"bold"
-    }
-})
+});

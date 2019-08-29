@@ -30,6 +30,7 @@ import MyQuality from "./user/MyQuality";
 import OrderDetail from "./order/OrderDetail";
 import AddQuality from "./user/AddQuality";
 import NavigationUtil from "../navigator/NavigationUtil";
+import CashSuc from "./user/CashSuc";
 
 function _renderBack(url = require('../assets/image/back.png'), opacity = 1, pressFunction) {
     return (
@@ -70,22 +71,6 @@ const navigationOptions = {
         fontWeight: '500'
     }
 };
-
-// const defaultSet = {
-//     headerMode: 'screen',
-//     navigationOptions,
-//     defaultNavigationOptions: {
-//         gesturesEnabled: true,
-//     },
-//     transitionConfig: () => ({
-//         transitionSpec: {
-//             duration: 400,
-//             easing: Easing.out(Easing.poly(4)),
-//             timing: Animated.timing,
-//         },
-//         screenInterpolator: StackViewStyleInterpolator.forHorizontal
-//     }),
-// };
 
 export default createStackNavigator({
     Main: {
@@ -143,18 +128,26 @@ export default createStackNavigator({
             return {
                 ...navigationOptions,
                 headerTitle: '提现',
-                // headerRight: _renderRight(<Text>
-                //     提现记录
-                // </Text>)
+                headerRight: _renderRight(
+                    <TouchableOpacity onPress={() => {
+                        NavigationUtil.goPage({}, 'CashOutLog');
+                    }}>
+                        <Text style={styles.rightText}>
+                            提现记录
+                        </Text>
+                    </TouchableOpacity>)
             }
         },
     },
     //提现记录
     CashOutLog: {
         screen: CashOutLog,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '提现记录'},
+    },
+    //提现成功
+    CashSuc: {
+        screen: CashSuc,
+        navigationOptions: {...navigationOptions, headerTitle: '提现成功'},
     },
     //用户基本信息认证
     UserDetail: {
@@ -190,4 +183,12 @@ export default createStackNavigator({
     transitionConfig: () => ({
         screenInterpolator: StackViewStyleInterpolator.forHorizontal,
     })
+});
+
+const styles = StyleSheet.create({
+    rightText: {
+        paddingRight: 10,
+        fontSize: 12,
+        color: '#353535',
+    },
 });
