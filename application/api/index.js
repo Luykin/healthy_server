@@ -57,3 +57,13 @@ export function walletQuery(page, pageSize, name = '提现') {
     };
     return netAxios(`${SZ_API_URI}/app/api/v1/wallet/query`, data, 'get')
 }
+
+// 订单查询
+export function orderQuery(page, pageSize, orderStatus) {
+    let data = {
+        page,
+        pageSize,
+        orderStatus
+    };
+    return netAxios(`${SZ_API_URI}/app/api/v1/worker/orders`, data, 'get')
+}

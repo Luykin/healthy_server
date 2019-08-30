@@ -50,13 +50,13 @@ export class MyQualityView extends Component{
             method:"GET"
         }).then(res=>res.json())
         .then(resJson=>{
-            if(resJson.data.length > 0){
+            if(resJson && resJson.data && resJson.data.length > 0){
                 let arr = [];
                 resJson.data.map((item,key)=>{
                     if(item.qualityStatus == status){
                         arr.push(item);
                     }
-                })
+                });
                 let statusText = "";
                 if(status == 0 ){
                     statusText = "审核中";

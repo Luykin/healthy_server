@@ -24,13 +24,13 @@ export class MsgBoxView extends Component{
         }
     }
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('dark-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
-        });
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //    // StatusBar.setBarStyle('dark-content');
+        //    // (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
+        // });
     }
     componentWillUnmount() {
-        this._navListener.remove();
+        // this._navListener.remove();
     }
     switchValue(e){
         this.setState({

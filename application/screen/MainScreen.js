@@ -108,9 +108,7 @@ export default createStackNavigator({
     //我的订单
     MyOrder: {
         screen: MyOrder,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '我的订单'},
     },
     //我的钱包
     MoneyBag: {

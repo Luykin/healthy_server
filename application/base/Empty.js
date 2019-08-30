@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         height: 100,
+        marginTop: 10,
         backgroundColor: '#ffffff',
     },
 });

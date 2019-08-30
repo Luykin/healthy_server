@@ -40,16 +40,16 @@ export default class UCenter extends Component {
             user: {},
             quality: [],
             refreshing: true,
-        }
+        };
         this.lastX = this.state.marginLeft;
         this.lastY = this.state.marginTop;
     }
 
     async componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-            StatusBar.setBarStyle('dark-content');
-            (Platform.OS === 'ios') ? "" : StatusBar.setBackgroundColor('#FFFFFF');
-        });
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //     // StatusBar.setBarStyle('dark-content');
+        //     // (Platform.OS === 'ios') ? "" : StatusBar.setBackgroundColor('#FFFFFF');
+        // });
         let userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
         this.setState({
             //avator:userInfo.face_img,
@@ -58,7 +58,7 @@ export default class UCenter extends Component {
         //this._walletQuery();
         //DeviceEventEmitter.emit('left', '发送了个通知');
         this._getWordTotal(userInfo);
-        this._getQuality(userInfo,0);
+        // this._getQuality(userInfo,0);
     }
 
     async _getQuality(user, status = 0) {
@@ -66,11 +66,11 @@ export default class UCenter extends Component {
             method: "GET"
         }).then(res => res.json())
             .then(resJson => {
-
+                console.log(resJson, '用户信息');
                 if (resJson && resJson.data && resJson.data.length > 0) {
                     let arr = [];
                     resJson.data.map((item, key) => {
-                        if (item.qualityStatus == status) {
+                        if (item.qualityStatus === status) {
                             arr.push(item);
                         }
                     })
@@ -107,7 +107,7 @@ export default class UCenter extends Component {
 
 
     componentWillUnmount() {
-        this._navListener.remove();
+        // this._navListener.remove();
     }
 
     render() {
@@ -158,7 +158,7 @@ export default class UCenter extends Component {
                         <View style={{alignItems: "center",}}>
                             <Image resizeMode="contain" source={require("../../static/icons/19.png")}
                                    style={styles.img}/>
-                            <Text>我的钱包</Text>
+                            <Text style={styles.uCenterText}>我的钱包</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {
@@ -167,7 +167,7 @@ export default class UCenter extends Component {
                         <View style={{alignItems: "center",}}>
                             <Image resizeMode="contain" source={require("../../static/icons/20.png")}
                                    style={styles.img}/>
-                            <Text>我的订单</Text>
+                            <Text style={styles.uCenterText}>我的订单</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => {
@@ -176,7 +176,7 @@ export default class UCenter extends Component {
                         <View style={{alignItems: "center",}}>
                             <Image resizeMode="contain" source={require("../../static/icons/21.png")}
                                    style={styles.img}/>
-                            <Text>资质管理</Text>
+                            <Text style={styles.uCenterText}>资质管理</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -186,7 +186,7 @@ export default class UCenter extends Component {
                         <View style={{alignItems: "center",}}>
                             <Image resizeMode="contain" source={require("../../static/icons/23.png")}
                                    style={styles.img}/>
-                            <Text>个人设置</Text>
+                            <Text style={styles.uCenterText}>个人设置</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -195,65 +195,65 @@ export default class UCenter extends Component {
                         <Text style={styles.title}>技能管理</Text>
                     </View>
 
-                    <FlatList
-                        contentContainerStyle={{
-                            flex: 1,
-                            width: "100%",
-                        }}
-                        style={{}}
-                        data={this.state.quality}
-                        horizontal={false}
-                        keyExtractor={(item, index) => {
-                            return "key" + index
-                        }}
-                        refreshing={this.state.refreshing}
-                        onRefresh={() => {
+                    {/*<FlatList*/}
+                    {/*    contentContainerStyle={{*/}
+                    {/*        flex: 1,*/}
+                    {/*        width: "100%",*/}
+                    {/*    }}*/}
+                    {/*    style={{}}*/}
+                    {/*    data={this.state.quality}*/}
+                    {/*    horizontal={false}*/}
+                    {/*    keyExtractor={(item, index) => {*/}
+                    {/*        return "key" + index*/}
+                    {/*    }}*/}
+                    {/*    refreshing={this.state.refreshing}*/}
+                    {/*    onRefresh={() => {*/}
 
-                        }}
-                        onEndReached={() => {
+                    {/*    }}*/}
+                    {/*    onEndReached={() => {*/}
 
-                        }}
-                        ListEmptyComponent={() => {
-                            return (
-                                <View style={{
-                                    backgroundColor: "#fff",
-                                    height: '100%',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                }}>
-                                    {/*<Text style={{fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>*/}
-                                   <Empty/>
-                                </View>
-                            )
-                        }}
-                        renderItem={({item, index}) => (
-                            <View style={{
-                                width: "100%",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                marginVertical: ScreenUtil.scaleSize(5)
-                            }}>
-                                <CardView
-                                    style={styles.card}
-                                    cardElevation={5}
-                                    cardMaxElevation={5}
-                                    cornerRadius={5}>
-                                    <View style={{}}>
-                                        <Text style={{
-                                            fontSize: ScreenUtil.scaleSize(36),
-                                            fontWeight: "bold",
-                                            color: "#000"
-                                        }}>{item.qualityType}</Text>
-                                        <Text style={{
-                                            height: ScreenUtil.scaleSize(80),
-                                            lineHeight: ScreenUtil.scaleSize(80)
-                                        }}>{item.name}</Text>
-                                    </View>
-                                    <Text style={styles.cardButton}>{item.qualityStatus == 0 ? "审核中" : "通过"}</Text>
-                                </CardView>
-                            </View>
-                        )}
-                    />
+                    {/*    }}*/}
+                    {/*    ListEmptyComponent={() => {*/}
+                    {/*        return (*/}
+                    {/*            <View style={{*/}
+                    {/*                backgroundColor: "#fff",*/}
+                    {/*                height: '100%',*/}
+                    {/*                alignItems: 'center',*/}
+                    {/*                justifyContent: 'center',*/}
+                    {/*            }}>*/}
+                    {/*                /!*<Text style={{fontSize: ScreenUtil.scaleSize(24)}}>暂无数据</Text>*!/*/}
+                    {/*                <Empty/>*/}
+                    {/*            </View>*/}
+                    {/*        )*/}
+                    {/*    }}*/}
+                    {/*    renderItem={({item, index}) => (*/}
+                    {/*        <View style={{*/}
+                    {/*            width: "100%",*/}
+                    {/*            justifyContent: "center",*/}
+                    {/*            alignItems: "center",*/}
+                    {/*            marginVertical: ScreenUtil.scaleSize(5)*/}
+                    {/*        }}>*/}
+                    {/*            <CardView*/}
+                    {/*                style={styles.card}*/}
+                    {/*                cardElevation={5}*/}
+                    {/*                cardMaxElevation={5}*/}
+                    {/*                cornerRadius={5}>*/}
+                    {/*                <View style={{}}>*/}
+                    {/*                    <Text style={{*/}
+                    {/*                        fontSize: ScreenUtil.scaleSize(36),*/}
+                    {/*                        fontWeight: "bold",*/}
+                    {/*                        color: "#000"*/}
+                    {/*                    }}>{item.qualityType}</Text>*/}
+                    {/*                    <Text style={{*/}
+                    {/*                        height: ScreenUtil.scaleSize(80),*/}
+                    {/*                        lineHeight: ScreenUtil.scaleSize(80)*/}
+                    {/*                    }}>{item.name}</Text>*/}
+                    {/*                </View>*/}
+                    {/*                <Text style={styles.cardButton}>{item.qualityStatus == 0 ? "审核中" : "通过"}</Text>*/}
+                    {/*            </CardView>*/}
+                    {/*        </View>*/}
+                    {/*    )}*/}
+                    {/*/>*/}
                 </View>
             </ScrollView>
         )
@@ -263,6 +263,11 @@ export default class UCenter extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#f5f6f5',
+    },
+    uCenterText: {
+        fontSize: 12,
+        color: '#666',
+        marginTop: 10
     },
     userview: {
         flexDirection: "row",
@@ -286,12 +291,12 @@ const styles = StyleSheet.create({
         fontSize: ScreenUtil.scaleSize(24), color: "#CCC"
     },
     img: {
-        width: ScreenUtil.scaleSize(80),
-        height: ScreenUtil.scaleSize(80)
+        width: 30,
+        height: 30
     },
     list: {
         backgroundColor: "#FFF",
-        width:"100%",
+        width: "100%",
         marginTop: ScreenUtil.scaleSize(20),
         paddingBottom: ScreenUtil.scaleSize(30)
     },

@@ -65,10 +65,10 @@ export class HomeView extends Component{
 
     }
     async componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('light-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
-        });
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //    StatusBar.setBarStyle('light-content');
+        //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
+        // });
         let userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
         let switchVal = parseInt(await AsyncStorage.getItem("switchVal"));
 
@@ -77,7 +77,7 @@ export class HomeView extends Component{
             switchVal:switchVal
         });
         //console.log(userInfo);
-        if(userInfo.authentication == 0){
+        if(parseInt(userInfo.authentication) === 0){
             this.setState({
                 modalVisible:true
             })
@@ -111,13 +111,13 @@ export class HomeView extends Component{
             10000
         );
         this._getLocal();
-        NavigationUtil.goPage({}, 'CashSuc')
+        //NavigationUtil.goPage({}, 'CashSuc')
     }
     //获取经伟度
      _getLocal(){
          navigator.geolocation.getCurrentPosition(
             (position) => {
-                if(position.coords.latitude == 0 || position.coords.longitude == 0){
+                if(!position.coords.latitude || !position.coords.longitude){
                     Alert.alert("请检查GPS是否开启");
                     return;
                 }
@@ -164,7 +164,7 @@ export class HomeView extends Component{
         });
     }*/
     componentWillUnmount() {
-        this._navListener.remove();
+        // this._navListener.remove();
         //this.deEmitter.remove();
         this._timer && clearInterval(this._timer);
     }
@@ -177,8 +177,8 @@ export class HomeView extends Component{
             }
         }).then(response => response.json())
         .then(responseJson => {
-            if(this.state.newOrderVisible == false){
-                if(responseJson.code != 200){
+            if(!this.state.newOrderVisible){
+                if(responseJson.code !== 200){
                     // Alert.alert('获取新订单出现错误：'+responseJson.msg)
                     return;
                 }
