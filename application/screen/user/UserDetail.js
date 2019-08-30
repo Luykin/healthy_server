@@ -26,7 +26,7 @@ const Data=[{"id":1}]
 /*
 * 主页
 */
-export class UserDetailView extends Component{
+export default class UserDetail extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -43,13 +43,13 @@ export class UserDetailView extends Component{
         }
     }
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('dark-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
-        });
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //    StatusBar.setBarStyle('dark-content');
+        //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
+        // });
     }
     componentWillUnmount() {
-        this._navListener.remove();
+        // this._navListener.remove();
     }
     _onPicker(){
         ImagePicker.openPicker({
@@ -58,14 +58,14 @@ export class UserDetailView extends Component{
             includeBase64:true
         }).then(images => {
             let img = "data:image/png;base64," + images.data;
-            if(this.state.zheng == true){
+            if(this.state.zheng){
                 this.setState({
                     id_img1:images.data,
                     isVisible:false,
                     id_card_img_z:{uri : img}
                 })
             }
-            if(this.state.fan == true){
+            if(this.state.fan){
                 this.setState({
                     id_img2:images.data,
                     isVisible:false,
@@ -88,14 +88,14 @@ export class UserDetailView extends Component{
               //mediaType,
             }).then(image => {
                 let img = "data:image/png;base64," + images.data;
-                if(this.state.zheng == true){
+                if(this.state.zheng){
                     this.setState({
                         id_img1:images.data,
                         isVisible:false,
                         id_card_img_z:{uri : img}
                     })
                 }
-                if(this.state.fan == true){
+                if(this.state.fan){
                     this.setState({
                         id_img2:images.data,
                         isVisible:false,
@@ -115,15 +115,15 @@ export class UserDetailView extends Component{
     }
     //提交信息
     async _submit(){
-        if(this.state.name == ""){
+        if(!this.state.name){
             Alert.alert("请输入用户姓名");
             return;
         }
-        if(this.state.id_num == ""){
+        if(!this.state.id_num){
             Alert.alert("请输入身份证号");
             return;
         }
-        if(this.state.id_img1 == "" || this.state.id_img2 == ""){
+        if(!this.state.id_img1 || !this.state.id_img2){
             Alert.alert("请上传身份证照片");
             return;
         }
@@ -145,7 +145,7 @@ export class UserDetailView extends Component{
             body:data
         }).then(response=>response.json())
         .then(responseJson=>{
-            if(responseJson.code == 200){
+            if(responseJson.code === 200){
                 Alert.alert("信息上传成功，审核中。。。");
                 return;
             }
@@ -156,7 +156,7 @@ export class UserDetailView extends Component{
         const  {navigate}  = this.props.navigation;
         return (
             <ScrollView style={[styles.container]} contentContainerStyle={{}}>
-                <View style={[styles.view,{marginTop:ScreenUtil.scaleSize(30),borderBottomWidth:1,borderBottomColor:"#ccc",}]}>
+                <View style={[styles.view,{marginTop:ScreenUtil.scaleSize(30),borderBottomWidth:1,borderBottomColor:"#eee",}]}>
                     <Text style={styles.label}>姓名</Text>
                     <View style={styles.inputBlock}>
                         <TextInput
@@ -175,7 +175,7 @@ export class UserDetailView extends Component{
                             />
                     </View>
                 </View>
-                <View style={[styles.view,{borderBottomWidth:1,borderBottomColor:"#ccc",}]}>
+                <View style={[styles.view,{borderBottomWidth:1,borderBottomColor:"#eee",}]}>
                     <Text style={styles.label}>身份证号</Text>
                     <View style={styles.inputBlock}>
                         <TextInput
@@ -204,7 +204,7 @@ export class UserDetailView extends Component{
                         }}>
                             <View style={{flexDirection:"row",paddingLeft:ScreenUtil.scaleSize(20)}}>
                                 {
-                                    this.state.sex == 1
+                                    this.state.sex === 1
                                     ? <Image source={require("../../static/icons/checked.png")} style={{width:ScreenUtil.scaleSize(40),height:ScreenUtil.scaleSize(40)}} />
                                     : <Image source={require("../../static/icons/check.png")} style={{width:ScreenUtil.scaleSize(40),height:ScreenUtil.scaleSize(40)}} />
                                 }
@@ -219,7 +219,7 @@ export class UserDetailView extends Component{
                         }}>
                             <View style={{flexDirection:"row",paddingLeft:ScreenUtil.scaleSize(30)}}>
                                 {
-                                    this.state.sex == 2
+                                    this.state.sex === 2
                                     ? <Image source={require("../../static/icons/checked.png")} style={{width:ScreenUtil.scaleSize(40),height:ScreenUtil.scaleSize(40)}} />
                                     : <Image source={require("../../static/icons/check.png")} style={{width:ScreenUtil.scaleSize(40),height:ScreenUtil.scaleSize(40)}} />
                                 }
@@ -324,50 +324,7 @@ export class UserDetailView extends Component{
         )
     }
 }
-//头样式
-const headerStyle = {
-    style:{
-        textAlign:'center',
-        height:ScreenUtil.scaleSize(120),
-        borderBottomWidth:0,
-        shadowOpacity:0,
-        elevation:0,
-        backgroundColor:"#FFF"},
-    titleStyle:{
-        flex:1,
-        textAlign:'center',
-        color:'#000',
-        alignItems:"center",
-        fontSize:ScreenUtil.scaleSize(42)}
-}
-export default UserDetail = createStackNavigator ({
-    UserDetailH:{
-        screen:UserDetailView,
-        navigationOptions:({navigation})=>({
-            headerTitle : navigation.getParam("name","身份信息"),
-            headerStyle:headerStyle.style,
-            headerTitleStyle:headerStyle.titleStyle,
-            headerTintColor:'#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={()=>{
-                    navigation.navigate("Main");
-                }}>
-                    <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')} style={{width:ScreenUtil.scaleSize(30),height:ScreenUtil.scaleSize(30)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <View />
-        })
-    },
 
-},{
-    initialRouteName:'UserDetailH',
-    transitionConfig:()=>({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'#fff',

@@ -157,9 +157,7 @@ export default createStackNavigator({
     //用户基本信息认证
     UserDetail: {
         screen: UserDetail,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '身份信息'},
     },
     //订单详情
     OrderDetail: {

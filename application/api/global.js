@@ -4,6 +4,7 @@ import {setToken} from "./index";
 let localObj = {};
 let global = {
     token: null,
+    cardInfo: null
 };
 
 AsyncStorage.getItem(`token`).then((res) => {

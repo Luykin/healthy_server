@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
         height: 50,
         lineHeight: 50,
         fontSize: 12,
-        color: '#dd7c0a'
+        color: '#FF9917'
     },
     inputIcon: {
         height: 50,

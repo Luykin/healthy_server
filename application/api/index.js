@@ -67,3 +67,9 @@ export function orderQuery(page, pageSize, orderStatus) {
     };
     return netAxios(`${SZ_API_URI}/app/api/v1/worker/orders`, data, 'get')
 }
+
+// /app/api/v1/worker/idcard
+export function getIdCard() {
+    let data = {};
+    return netAxios(`${SZ_API_URI}/app/api/v1/worker/idcard`, data, 'get')
+}
