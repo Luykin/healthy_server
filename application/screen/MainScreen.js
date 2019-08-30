@@ -92,9 +92,7 @@ export default createStackNavigator({
     //模式设置
     Model: {
         screen: Model,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '模式设置'},
     },
     //消息
     MsgBox: {

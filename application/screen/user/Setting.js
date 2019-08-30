@@ -158,7 +158,7 @@ export default class Setting extends Component {
                 </View>
                 <TouchableOpacity style={[styles.view, {/*borderBottomWidth:1,borderBottomColor:"#ccc",*/}]}
                                   onPress={() => {
-                                      if (!this.state.idCard) {
+                                      if (!this.state.cardInfo || !this.state.cardInfo.IdNum) {
                                           NavigationUtil.goPage({}, 'UserDetail');
                                       }
                                   }}>

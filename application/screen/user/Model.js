@@ -21,7 +21,7 @@ import ScreenUtil,{deviceWidth,deviceHeight,SZ_API_URI,DATA_API} from "../../com
 /*
 * 主页
 */
-export class ModelView extends Component{
+export default class Model extends Component{
     constructor(props){
         super(props);
         this.state={
@@ -34,10 +34,10 @@ export class ModelView extends Component{
         }
     }
     componentDidMount() {
-        this._navListener = this.props.navigation.addListener('didFocus', () => {
-           StatusBar.setBarStyle('dark-content');
-           (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
-        });
+        // this._navListener = this.props.navigation.addListener('didFocus', () => {
+        //    StatusBar.setBarStyle('dark-content');
+        //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
+        // });
         let date = new Date();
 
         let year = date.getFullYear();
@@ -64,7 +64,7 @@ export class ModelView extends Component{
             method:"GET"
         }).then(response => response.json())
         .then(responseJson=>{
-console.log(responseJson);
+            console.log(responseJson, 'model 数据设置');
             if(responseJson.code !== 0){
                 Alert.alert(responseJson.msg);
                 return;
@@ -87,7 +87,7 @@ console.log(responseJson);
         });
     }
     componentWillUnmount() {
-        this._navListener.remove();
+        //this._navListener.remove();
     }
     //实时单
     switchValue(e){
@@ -363,50 +363,6 @@ console.log(responseJson);
         )
     }
 }
-//头样式
-const headerStyle = {
-    style:{
-        textAlign:'center',
-        height:ScreenUtil.scaleSize(120),
-        borderBottomWidth:0,
-        shadowOpacity:0,
-        elevation:0,
-        backgroundColor:"#FFF"},
-    titleStyle:{
-        flex:1,
-        textAlign:'center',
-        color:'#000',
-        alignItems:"center",
-        fontSize:ScreenUtil.scaleSize(32)}
-}
-export default Model = createStackNavigator ({
-    ModelH:{
-        screen:ModelView,
-        navigationOptions:({navigation})=>({
-            headerTitle : navigation.getParam("name","模式设置"),
-            headerStyle:headerStyle.style,
-            headerTitleStyle:headerStyle.titleStyle,
-            headerTintColor:'#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={()=>{
-                    navigation.pop();
-                }}>
-                    <View style={{marginLeft:ScreenUtil.scaleSize(10),padding:ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')} style={{width:ScreenUtil.scaleSize(30),height:ScreenUtil.scaleSize(30)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <View />
-        })
-    },
-
-},{
-    initialRouteName:'ModelH',
-    transitionConfig:()=>({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'#FFF',
