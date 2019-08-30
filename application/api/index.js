@@ -49,12 +49,18 @@ export function updateUserInfo() {
 
 
 /*wallet查询*/
-export function walletQuery(page, pageSize, name = '提现') {
+export function walletQuery(page, pageSize, name = '提现', dateStart, dateEnd) {
     let data = {
         page,
         pageSize,
         name
     };
+    if(dateStart && dateEnd) {
+        Object.assign(data, {
+            dateStart,
+            dateEnd
+        })
+    }
     return netAxios(`${SZ_API_URI}/app/api/v1/wallet/query`, data, 'get')
 }
 

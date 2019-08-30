@@ -120,7 +120,7 @@ export default class Model extends Component{
 
         let userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
         let token = await AsyncStorage.getItem("token");
-        if(this.state.types.length == 0){
+        if(this.state.types.length === 0){
             Alert.alert("请选择接单类型");
             return;
         }
@@ -131,7 +131,7 @@ export default class Model extends Component{
         data.geo_range = this.state.limit;
         data.accept_appoint = this.state.isYuyue;
 
-        if(this.state.isYuyue == true){
+        if(this.state.isYuyue){
             data.appoint_starttime = this.state.startTime;
             data.appoint_endtime = this.state.endTime;
         }
@@ -157,9 +157,8 @@ export default class Model extends Component{
         }).then(response => response.json())
         .then(responseJson => {
         console.log(responseJson);
-            if(responseJson.code == 200){
+            if(responseJson.code === 200){
                 Alert.alert(responseJson.msg);
-                return;
             }else{
                 Alert.alert(responseJson.msg);
             }
@@ -179,7 +178,7 @@ export default class Model extends Component{
                             style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                             trackColor='#1f82ff'  //开关打开时的背景颜色
                             thumbColor='#FFF' //开关上原形按钮的颜色
-                            value={this.state.isOn == true}//默认状态
+                            value={this.state.isOn === true}//默认状态
                             onValueChange={(e) => this.switchValue(e)} //当状态值发生变化值回调
                         />
                     </View>
@@ -196,7 +195,7 @@ export default class Model extends Component{
                             });
                         }}>
                             <Text style={[styles.addressInput,
-                               this.state.limit == 3 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
+                               this.state.limit === 3 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
                             ]}>3公里以内</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={()=>{
@@ -205,7 +204,7 @@ export default class Model extends Component{
                             });
                         }}>
                             <Text style={[styles.addressInput,
-                               this.state.limit == 5 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
+                               this.state.limit === 5 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
                             ]}>5公里以内</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={()=>{
@@ -214,7 +213,7 @@ export default class Model extends Component{
                             });
                         }}>
                             <Text style={[styles.addressInput,
-                               this.state.limit == 10 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
+                               this.state.limit === 10 ?({backgroundColor:"#ff7418",color:"#fff",borderColor:"#ff7418"}) :""
                             ]}>10公里以内</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={()=>{
@@ -235,7 +234,7 @@ export default class Model extends Component{
                             style={{ transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                             trackColor='#1f82ff'  //开关打开时的背景颜色
                             thumbColor='#FFF' //开关上原形按钮的颜色
-                            value={this.state.isYuyue == true}//默认状态
+                            value={this.state.isYuyue === true}//默认状态
                             onValueChange={(e) => this.switchYuyueValue(e)} //当状态值发生变化值回调
                         />
                     </View>

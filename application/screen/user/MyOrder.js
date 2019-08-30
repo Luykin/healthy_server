@@ -85,13 +85,51 @@ export default class MyOrder extends Component {
                             }
                         }} //获取列表的api
                         renderItem={(item) => {
+                            // return (
+                            //     <View>
+                            //         <TouchableOpacity activeOpacity={.9}>
+                            //             <Text>1</Text>
+                            //         </TouchableOpacity>
+                            //     </View>
+                            // )
                             return (
-                                <View>
-                                    <TouchableOpacity activeOpacity={.9}>
-                                        <Text>1</Text>
-                                    </TouchableOpacity>
+                                <View style={styles.view}>
+                                    <View style={styles.list}>
+                                        <Text style={styles.status}>{strOrderStatus}</Text>
+                                        <TouchableOpacity onPress={() => {
+                                            const url = `tel:${item.contactPhone}`;
+                                            Linking.canOpenURL(url).then(supported => {
+                                                if (!supported) {
+                                                    Alert.alert('无法拨打电话')
+                                                    console.log('Can\'t handle url: ' + url);
+                                                } else {
+                                                    return Linking.openURL(url);
+                                                }
+                                            }).catch(err => console.error('An error occurred'));
+                                        }}>
+                                            <Text style={styles.phone}>拨打电话</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                    <View stype={{paddingVertical: ScreenUtil.scaleSize(30)}}>
+                                        <Text style={styles.text}>{item.appointTime}</Text>
+                                        <Text
+                                            style={[styles.text, {
+                                                fontSize: ScreenUtil.scaleSize(32),
+                                                fontWeight: "bold"
+                                            }]}>
+                                            <Image source={require("../../static/icons/point.png")} style={{
+                                                width: ScreenUtil.scaleSize(40),
+                                                height: ScreenUtil.scaleSize(40)
+                                            }}/>{item.serveDay}
+                                        </Text>
+                                        <Text style={[styles.text, {fontSize: ScreenUtil.scaleSize(28)}]}>
+                                            <Image source={require("../../static/icons/point.png")} style={{
+                                                width: ScreenUtil.scaleSize(40),
+                                                height: ScreenUtil.scaleSize(40)
+                                            }}/>{item.address}</Text>
+                                    </View>
                                 </View>
-                            )
+                            );
                         }} //渲染每一项的UI
                     />
                 </View>

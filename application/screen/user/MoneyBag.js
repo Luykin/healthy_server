@@ -19,289 +19,13 @@ import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI} from "../../common/Sc
 import Empty from "../../base/Empty";
 import DatePicker from "react-native-datepicker";
 import {walletQuery} from "../../api";
+import {timeformat, YYMM} from "../../util/util";
 
-/**
- "balance": "165.82",
- "income": 200.22,
- "list": {
-            "list": [
-                {
-                    "amount": 10,
-                    "billId": "1157239171576893440",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-02T10:38:14.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 1.1,
-                    "billId": "1157239306855780352",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T10:38:46.000+0000",
-                    "deleted": false,
-                    "description": "测试消费",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 5,
-                    "billId": "1157239684326363136",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T10:40:16.000+0000",
-                    "deleted": false,
-                    "description": "测试消费",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1157240899860828160",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-02T10:45:06.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1157241616658993152",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-02T10:47:57.000+0000",
-                    "deleted": false,
-                    "description": "",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 1.1,
-                    "billId": "1157243352765304832",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T10:54:50.000+0000",
-                    "deleted": false,
-                    "description": "测试消费",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1157243816416251904",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T10:56:41.000+0000",
-                    "deleted": false,
-                    "description": "",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1157244524028891136",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T10:59:30.000+0000",
-                    "deleted": false,
-                    "description": "",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1157247210207973376",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-02T11:10:10.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 5,
-                    "billId": "1157247225307467776",
-                    "categoryName": "消费",
-                    "createTime": "2019-08-02T11:10:14.000+0000",
-                    "deleted": false,
-                    "description": "测试消费",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 1,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284899984216064",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:35.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284902177837056",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:35.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284904740556800",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:36.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284906766405632",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:36.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284908469293056",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:37.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284910092488704",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:37.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158284911564689408",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:53:37.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158285380810838016",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:55:29.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158285387815325696",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:55:31.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                },
-                {
-                    "amount": 10,
-                    "billId": "1158285389279137792",
-                    "categoryName": "充值",
-                    "createTime": "2019-08-05T07:55:31.000+0000",
-                    "deleted": false,
-                    "description": "测试充值",
-                    "reserve1": null,
-                    "reserve2": null,
-                    "type": 0,
-                    "updateTime": null,
-                    "userId": "1128204377975296000"
-                }
-            ],
-            "page": 1,
-            "pageSize": 20,
-            "total": 28
-        },
- "spend": 34.4
- */
-
-
-/*
-* 主页
-*/
 export default class MoneyBag extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: '2019-08',
+            date: YYMM(+new Date()),
             data: {
                 balance: 0, income: 0, spend: 0, list: []
             },
@@ -312,23 +36,25 @@ export default class MoneyBag extends Component {
     }
 
     componentDidMount() {
-
         this.getMoneyBag((data) => {
-            if (data) {
-                this.setState({
-                    data,
-                    loaded: true,
-                    refreshing: false
-                })
-            } else {
-                this.setState({
-                    loaded: true,
-                    refreshing: false
-                })
-            }
-
+            this._afterGet(data);
         });
 
+    }
+
+    _afterGet(data) {
+        if (data) {
+            this.setState({
+                data,
+                loaded: true,
+                refreshing: false
+            })
+        } else {
+            this.setState({
+                loaded: true,
+                refreshing: false
+            })
+        }
     }
 
     componentWillUnmount() {
@@ -341,26 +67,7 @@ export default class MoneyBag extends Component {
     }
 
     getMoneyBag = async (callback) => {
-        // const self = this;
-        // let token = await AsyncStorage.getItem("token");
-        // fetch(SZ_API_URI + '/app/api/v1/wallet/query', {
-        //     headers: {
-        //         "token": token
-        //     }
-        // }).then(res => res.json()).then(res => {
-        //     console.log(res)
-        //     if (res.code === 200) {
-        //         console.log(res);
-        //         callback(res.data)
-        //     } else {
-        //         callback()
-        //         Alert.alert(res.msg || '查询钱包出错')
-        //     }
-        // }).catch(e => {
-        //     callback()
-        //     Alert.alert('查询钱包出错')
-        // })
-        const ret = await walletQuery(1, 10);
+        const ret = await walletQuery(1, 10, '提现', `${this.state.date + '-01 00:00:00'}`, `${this.state.date + '-29 59:00:00'}`);
         if (ret.code === 200) {
             callback(ret.data)
         } else {
@@ -392,7 +99,7 @@ export default class MoneyBag extends Component {
                     <Text style={{color: "#FFFFFF", fontSize: 15, fontWeight: "bold"}}>账单明细</Text>
                     <View style={styles.titleLineBottom}>
                         <DatePicker
-                            style={{width: 120, height: 40}}
+                            style={{width: 120, height: 40,}}
                             date={this.state.date}
                             mode="date"
                             placeholder={this.state.date}
@@ -402,7 +109,7 @@ export default class MoneyBag extends Component {
                             confirmBtnText="确定"
                             cancelBtnText="取消"
                             showIcon={false}
-                            androidMode={'spinner'}
+                            androidMode={'default'}
                             customStyles={{
                                 dateInput: {
                                     borderWidth: 0,
@@ -414,7 +121,13 @@ export default class MoneyBag extends Component {
                                 }
                             }}
                             onDateChange={(date) => {
-                                this.setState({date: date})
+                                this.setState({
+                                    date: date.replace('年', '-').replace('月', '')
+                                }, () => {
+                                    this.getMoneyBag((data) => {
+                                        this._afterGet(data);
+                                    });
+                                })
                             }}
                         />
                         <Image source={require("../../static/icons/bottom.png")}
