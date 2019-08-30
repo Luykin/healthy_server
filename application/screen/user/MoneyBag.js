@@ -20,6 +20,7 @@ import Empty from "../../base/Empty";
 import DatePicker from "react-native-datepicker";
 import {walletQuery} from "../../api";
 import {timeformat, YYMM} from "../../util/util";
+import {bindData, setGlobal} from "../../api/global";
 
 export default class MoneyBag extends Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export default class MoneyBag extends Component {
             data: {
                 balance: 0, income: 0, spend: 0, list: []
             },
+            wallet: bindData('wallet', this),
             refreshing: true,
             loaded: false,
             count: "全部(60)"
@@ -48,7 +50,18 @@ export default class MoneyBag extends Component {
                 data,
                 loaded: true,
                 refreshing: false
-            })
+            });
+            if ('balance' in data) {
+                try {
+                    setGlobal('wallet', {
+                        balance: data.balance,
+                        income: data.income,
+                        spend: data.spend
+                    })
+                } catch (e) {
+                    console.log(e)
+                }
+            }
         } else {
             this.setState({
                 loaded: true,
@@ -58,7 +71,9 @@ export default class MoneyBag extends Component {
     }
 
     componentWillUnmount() {
-
+        this.setState = () => {
+            return null;
+        }
     }
 
     //加载数据  1全部 2待服务 3已完成

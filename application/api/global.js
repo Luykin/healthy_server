@@ -4,7 +4,12 @@ import {setToken} from "./index";
 let localObj = {};
 let global = {
     token: null,
-    cardInfo: null
+    cardInfo: null,
+    wallet: {
+        balance: 0,
+        income: 0,
+        spend: 0
+    }
 };
 
 AsyncStorage.getItem(`token`).then((res) => {

@@ -12,6 +12,7 @@ import {
     default as Alert
 } from 'react-native';
 import comStyles from "../../assets/styles/comStyles";
+import {bindData} from "../../api/global";
 
 const withdrawList = [{
     id: 1,
@@ -25,6 +26,7 @@ export default class CashOut extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            wallet: bindData('wallet', this),
             activeWithItem: withdrawList[0],
             amount: '',
             cardName: '',
@@ -51,27 +53,11 @@ export default class CashOut extends Component {
         })
     }
 
-    // getMoneyBag = async (callback)=>{
-    //     const self = this;
-    //     let token  = await AsyncStorage.getItem("token");
-    //     fetch(SZ_API_URI+'/app/api/v1/wallet/query',{
-    //         headers:{
-    //             "token" : token
-    //         }
-    //     }).then(res=>res.json()).then(res=>{
-    //         if(res.code == 200){
-    //             self.setState({
-    //                 uMoney:res.data.balance || 0
-    //             })
-    //         }else{
-    //         }
-    //     }).catch(e=>{
-    //         callback()
-    //     })
-    // }
 
     componentWillUnmount() {
-        // this._navListener.remove();
+        this.setState = () => {
+            return null;
+        }
     }
 
     render() {
@@ -89,7 +75,7 @@ export default class CashOut extends Component {
                                    onChangeText={(text) => this._onChangeText(text, 'amount')}/>
                         <Text style={styles.inputBtn}>全部提现</Text>
                     </View>
-                    <Text style={styles.inputText}>可提现金额：560</Text>
+                    <Text style={styles.inputText}>可提现金额：{this.state.wallet.balance}</Text>
                 </View>
                 <View style={[comStyles.blank]}/>
                 <View style={styles.cashChannelWrap}>
