@@ -4,6 +4,7 @@ import ListGeneral from "../../base/ListGeneral";
 import {walletQuery} from "../../api";
 import DatePicker from "react-native-datepicker";
 import comStyles from "../../assets/styles/comStyles";
+import {YYMM} from "../../util/util";
 
 const ITEM_HEIGHT = 80;
 const ITEM_MARGIN_TOP = 1;
@@ -13,7 +14,7 @@ export default class CashOutLog extends Component {
         super(props);
         this.state = {
             list: [],
-            date: "2016-05"
+            date: YYMM(+new Date()),
         }
     }
 
@@ -25,11 +26,11 @@ export default class CashOutLog extends Component {
 
     }
 
-    _renderHeader() {
-        return (
-            <View>header</View>
-        )
-    }
+    // _renderHeader() {
+    //     return (
+    //         <View>header</View>
+    //     )
+    // }
 
     _renderIndexPath({section: section, row: row}) {
         const item = this.state.list[section].items[row];
@@ -70,17 +71,14 @@ export default class CashOutLog extends Component {
                                 }
                             }}
                             onDateChange={(date) => {
-                                this.setState({date: date})
+                                this.setState({
+                                    date: date.replace('年', '-').replace('月', '')
+                                }, () => {
+                                    this._list && this._list._onRefresh();
+                                })
                             }}
                         />
                     </View>
-                </View>
-                <View style={[comStyles.flex, styles.colItemWrap]}>
-                    <View style={styles.ciLeft}>
-                        <Text style={styles.ciLabel}>余额提现到微信</Text>
-                        <Text style={styles.ciTime}>6月12日 13:00</Text>
-                    </View>
-                    <Text style={styles.ciRight}> +100.00</Text>
                 </View>
                 <ListGeneral
                     style={{flex: 1}}
@@ -93,7 +91,7 @@ export default class CashOutLog extends Component {
                     itemHeight={ITEM_HEIGHT} //每一项的高度
                     itemMarginTop={ITEM_MARGIN_TOP} //每一项的marginTop
                     getList={async (page, num, callback) => {
-                        const ret = await walletQuery(page, num);
+                        const ret = await walletQuery(page, num, '提现', `${this.state.date + '-01 00:00:00'}`, `${this.state.date + '-29 59:00:00'}`);
                         console.log(ret);
                         if (ret.code === 200) {
                             callback(ret.data.list.list);
@@ -104,9 +102,13 @@ export default class CashOutLog extends Component {
                     renderItem={(item) => {
                         return (
                             <View>
-                                <TouchableOpacity activeOpacity={.9}>
-                                    <Text>1</Text>
-                                </TouchableOpacity>
+                                <View style={[comStyles.flex, styles.colItemWrap]}>
+                                    <View style={styles.ciLeft}>
+                                        <Text style={styles.ciLabel}>{item.description || '提现'}</Text>
+                                        <Text style={styles.ciTime}>{item.createTime || '-'}</Text>
+                                    </View>
+                                    <Text style={styles.ciRight}> +{item.amount || 0}元</Text>
+                                </View>
                             </View>
                         )
                     }} //渲染每一项的UI

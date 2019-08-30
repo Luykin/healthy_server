@@ -19,10 +19,6 @@ import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI} from "../../common/Sc
 
 const ITEM_HEIGHT = 100;
 const ITEM_MARGIN_TOP = 15;
-
-/*
-* 主页
-*/
 export default class MyOrder extends Component {
     constructor(props) {
         super(props);
@@ -32,6 +28,7 @@ export default class MyOrder extends Component {
                 {"id": 2, "title": "进行中"},
                 {"id": 3, "title": "已完成"}
             ],
+            strOrderStatus: '全部',
             data: {
                 list: []
             },
@@ -62,6 +59,12 @@ export default class MyOrder extends Component {
 
     }
 
+    _onChangeTab(index) {
+        this.setState({
+            strOrderStatus: this.state.types[index.i]
+        })
+    }
+
     render() {
         let tab = this.state.types.map((item, index) => {
             return (
@@ -80,24 +83,22 @@ export default class MyOrder extends Component {
                             const ret = await orderQuery(page, num, item.id);
                             console.log(ret);
                             if (ret.code === 200) {
-                                callback([1, 2, 3, 4]);
+                                callback();
                             } else {
                                 callback()
                             }
                         }} //获取列表的api
-                        renderItem={(items) => {
-                            const item = {
-                                contactPhone: '1732',
-                                appointTime: '12-dd',
-                                address: 'dddd',
-                                serveDay: 'dddd'
-                            };
-                            let strOrderStatus = '进行中';
+                        renderItem={(item) => {
+                            if (!item.contactPhone || !item.appointTime || !item.address) {
+                                return (<View>
+                                    <View style={styles.view} />
+                                </View>);
+                            }
                             return (
                                 <View>
                                     <View style={styles.view}>
                                         <View style={styles.list}>
-                                            <Text style={styles.status}>{strOrderStatus}</Text>
+                                            <Text style={styles.status}>{this.state.strOrderStatus}</Text>
                                             <TouchableOpacity onPress={() => {
                                                 const url = `tel:${item.contactPhone}`;
                                                 Linking.canOpenURL(url).then(supported => {

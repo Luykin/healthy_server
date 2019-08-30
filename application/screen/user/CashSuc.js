@@ -6,7 +6,8 @@ import NavigationUtil from "../../navigator/NavigationUtil";
 export default class CashSuc extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
+        this.successInfo = this.props.navigation.state.params.successInfo
     }
 
     componentDidMount() {
@@ -24,7 +25,7 @@ export default class CashSuc extends Component {
             }]}>
                 <Image source={require('../../static/icons/28.png')} style={styles.sucIcon}/>
                 <Text style={styles.sucText}>提现成功</Text>
-                <Text style={styles.moneyText}>300.00</Text>
+                <Text style={styles.moneyText}>{this.successInfo ? this.successInfo.amount : 0}</Text>
                 <Text style={styles.tipsText}>您已提现（元）</Text>
                 <TouchableOpacity onPress={() => {
                     NavigationUtil.goBack();
