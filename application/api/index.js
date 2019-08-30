@@ -67,7 +67,7 @@ export function walletQuery(page, pageSize, name = '提现', dateStart, dateEnd)
 // 订单查询
 export function orderQuery(page, pageSize, orderStatus) {
     let data = {
-        page,pageSize,orderStatus
+        page, pageSize, orderStatus
     };
     return netAxios(`${SZ_API_URI}/app/api/v1/worker/orders`, data, 'get')
 }
@@ -85,4 +85,23 @@ export function cashOut(amount, cardName, cardId, cardBank) {
         amount, cardName, cardId, cardBank
     };
     return netAxios(`${SZ_API_URI}/app/api/v1/wallet/cashout`, data, 'post')
+}
+
+// 模式信息
+export function modesInfo() {
+    let data = {};
+    return netAxios(`${SZ_API_URI}/app/api/v1/worker/modes/info`, data, 'get')
+}
+
+// 设置模式信息
+export function setModesInfo(real_timemode, geo_range, accept_appoint, appoint_starttime, appoint_endtime) {
+    let data = {
+        real_timemode, geo_range,
+    };
+    if (accept_appoint) {
+        Object.assign(data, {
+            accept_appoint, appoint_starttime, appoint_endtime
+        })
+    }
+    return netAxios(`${SZ_API_URI}/app/api/v1/worker/modes`, data, 'post')
 }
