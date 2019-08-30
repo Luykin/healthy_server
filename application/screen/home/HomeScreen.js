@@ -79,7 +79,7 @@ export class HomeView extends Component{
         //console.log(userInfo);
         if(parseInt(userInfo.authentication) === 0){
             this.setState({
-                modalVisible:true
+                modalVisible: true
             })
         }
 
@@ -190,7 +190,7 @@ export class HomeView extends Component{
                         let arr = {};
 
                         for(var key in item){
-                            if(item[key] != undefined){
+                            if(item[key] !== undefined){
                                 item[key].products = JSON.parse(item[key].products);
                                 arr = item[key];
                                 break;
@@ -221,7 +221,7 @@ export class HomeView extends Component{
         .then(response => response.json())
         .then(responseJson => {
 
-            if(responseJson.code == 0){
+            if(responseJson.code === 0){
                 this.setState({
                     orders:responseJson.data.orders,
                     income:responseJson.data.income,

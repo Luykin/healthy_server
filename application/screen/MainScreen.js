@@ -87,9 +87,7 @@ export default createStackNavigator({
     //个人设置
     Setting: {
         screen: Setting,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '个人设置'},
     },
     //模式设置
     Model: {
