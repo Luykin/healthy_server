@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/mac/Documents/nurse/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/values-v24/values-v24.xml",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/d103168d7fc3e04b1816f0ecdd78e067/res/values-v24/values-v24.xml",
+                    "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/9b35bcf269efb167b1e9efbffd54a001/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

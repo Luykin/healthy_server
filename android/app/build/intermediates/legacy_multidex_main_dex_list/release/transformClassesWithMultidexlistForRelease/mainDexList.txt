@@ -83,7 +83,6 @@ android/support/v4/graphics/drawable/IconCompat$IconType.class
 android/support/v4/media/AudioAttributesCompat$AttributeContentType.class
 android/support/v4/media/AudioAttributesCompat$AttributeUsage.class
 android/support/v4/media/MediaBrowserCompat$MediaItem$Flags.class
-android/support/v4/media/MediaBrowserServiceCompat$ResultFlags.class
 android/support/v4/media/MediaMetadataCompat$BitmapKey.class
 android/support/v4/media/MediaMetadataCompat$LongKey.class
 android/support/v4/media/MediaMetadataCompat$RatingKey.class
@@ -122,6 +121,7 @@ androidx/versionedparcelable/ParcelField.class
 androidx/versionedparcelable/VersionedParcelize.class
 com/BV/LinearGradient/LinearGradientPackage.class
 com/beefe/picker/PickerViewPackage.class
+com/bolan9999/SpringScrollViewPackage.class
 com/facebook/cache/disk/DefaultDiskStorage$FileType.class
 com/facebook/common/internal/DoNotStrip.class
 com/facebook/common/internal/Objects.class
@@ -235,6 +235,7 @@ com/google/android/gms/common/zzm.class
 com/hugong/MainApplication$1.class
 com/hugong/MainApplication.class
 com/hugong/android_upgrade/UpgradePackage.class
+com/kishanjvaghela/cardview/RNCardViewPackage.class
 com/reactnative/ivpusic/imagepicker/PickerPackage.class
 com/reactnativecommunity/asyncstorage/AsyncStoragePackage.class
 com/reactnativecommunity/viewpager/RNCViewPagerPackage.class
@@ -279,3 +280,4 @@ javax/inject/Qualifier.class
 javax/inject/Scope.class
 javax/inject/Singleton.class
 okhttp3/internal/annotations/EverythingIsNonNull.class
+org/lovebing/reactnative/baidumap/BaiduMapPackage.class
