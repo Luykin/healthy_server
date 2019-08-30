@@ -15,9 +15,10 @@ import {
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view';
 import {orderQuery} from "../../api";
 import ListGeneral from "../../base/ListGeneral";
+import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI} from "../../common/ScreenUtil";
 
-const ITEM_HEIGHT = 80;
-const ITEM_MARGIN_TOP = 1;
+const ITEM_HEIGHT = 100;
+const ITEM_MARGIN_TOP = 15;
 
 /*
 * 主页
@@ -79,54 +80,56 @@ export default class MyOrder extends Component {
                             const ret = await orderQuery(page, num, item.id);
                             console.log(ret);
                             if (ret.code === 200) {
-                                callback(ret.data.list);
+                                callback([1, 2, 3, 4]);
                             } else {
                                 callback()
                             }
                         }} //获取列表的api
-                        renderItem={(item) => {
-                            // return (
-                            //     <View>
-                            //         <TouchableOpacity activeOpacity={.9}>
-                            //             <Text>1</Text>
-                            //         </TouchableOpacity>
-                            //     </View>
-                            // )
+                        renderItem={(items) => {
+                            const item = {
+                                contactPhone: '1732',
+                                appointTime: '12-dd',
+                                address: 'dddd',
+                                serveDay: 'dddd'
+                            };
+                            let strOrderStatus = '进行中';
                             return (
-                                <View style={styles.view}>
-                                    <View style={styles.list}>
-                                        <Text style={styles.status}>{strOrderStatus}</Text>
-                                        <TouchableOpacity onPress={() => {
-                                            const url = `tel:${item.contactPhone}`;
-                                            Linking.canOpenURL(url).then(supported => {
-                                                if (!supported) {
-                                                    Alert.alert('无法拨打电话')
-                                                    console.log('Can\'t handle url: ' + url);
-                                                } else {
-                                                    return Linking.openURL(url);
-                                                }
-                                            }).catch(err => console.error('An error occurred'));
-                                        }}>
-                                            <Text style={styles.phone}>拨打电话</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View stype={{paddingVertical: ScreenUtil.scaleSize(30)}}>
-                                        <Text style={styles.text}>{item.appointTime}</Text>
-                                        <Text
-                                            style={[styles.text, {
-                                                fontSize: ScreenUtil.scaleSize(32),
-                                                fontWeight: "bold"
-                                            }]}>
-                                            <Image source={require("../../static/icons/point.png")} style={{
-                                                width: ScreenUtil.scaleSize(40),
-                                                height: ScreenUtil.scaleSize(40)
-                                            }}/>{item.serveDay}
-                                        </Text>
-                                        <Text style={[styles.text, {fontSize: ScreenUtil.scaleSize(28)}]}>
-                                            <Image source={require("../../static/icons/point.png")} style={{
-                                                width: ScreenUtil.scaleSize(40),
-                                                height: ScreenUtil.scaleSize(40)
-                                            }}/>{item.address}</Text>
+                                <View>
+                                    <View style={styles.view}>
+                                        <View style={styles.list}>
+                                            <Text style={styles.status}>{strOrderStatus}</Text>
+                                            <TouchableOpacity onPress={() => {
+                                                const url = `tel:${item.contactPhone}`;
+                                                Linking.canOpenURL(url).then(supported => {
+                                                    if (!supported) {
+                                                        Alert.alert('无法拨打电话')
+                                                        console.log('Can\'t handle url: ' + url);
+                                                    } else {
+                                                        return Linking.openURL(url);
+                                                    }
+                                                }).catch(err => console.error('An error occurred'));
+                                            }}>
+                                                <Text style={styles.phone}>拨打电话</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                        <View style={{paddingVertical: ScreenUtil.scaleSize(30)}}>
+                                            <Text style={styles.text}>{item.appointTime}</Text>
+                                            <Text
+                                                style={[styles.text, {
+                                                    fontSize: ScreenUtil.scaleSize(32),
+                                                    fontWeight: "bold"
+                                                }]}>
+                                                <Image source={require("../../static/icons/point.png")} style={{
+                                                    width: ScreenUtil.scaleSize(40),
+                                                    height: ScreenUtil.scaleSize(40)
+                                                }}/>{item.serveDay}
+                                            </Text>
+                                            <Text style={[styles.text, {fontSize: ScreenUtil.scaleSize(28)}]}>
+                                                <Image source={require("../../static/icons/point.png")} style={{
+                                                    width: ScreenUtil.scaleSize(40),
+                                                    height: ScreenUtil.scaleSize(40)
+                                                }}/>{item.address}</Text>
+                                        </View>
                                     </View>
                                 </View>
                             );
@@ -158,7 +161,47 @@ export default class MyOrder extends Component {
     }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#FFF',
+    },
+    view: {
+        backgroundColor: "#fff",
+        marginBottom: ScreenUtil.scaleSize(20),
+        padding: ScreenUtil.scaleSize(30),
+        borderRadius: ScreenUtil.scaleSize(10),
+        marginHorizontal: ScreenUtil.scaleSize(20),
+        height: ITEM_HEIGHT,
+        lineHeight: ITEM_HEIGHT,
+        marginTop: ITEM_MARGIN_TOP,
+        overflow: 'hidden'
+    },
+    list: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderBottomColor: "#ccc",
+    },
+    status: {
+        color: "#000",
+        fontSize: ScreenUtil.scaleSize(30),
+        fontWeight: "bold"
+    },
+    phone: {
+        fontSize: ScreenUtil.scaleSize(24),
+        height: ScreenUtil.scaleSize(50),
+        lineHeight: ScreenUtil.scaleSize(50),
+        width: ScreenUtil.scaleSize(150),
+        borderRadius: ScreenUtil.scaleSize(50),
+        color: "#FF9900",
+        borderWidth: 1,
+        borderColor: "#FF9900",
+        textAlign: "center"
+    },
+    text: {
+        height: ScreenUtil.scaleSize(80), lineHeight: ScreenUtil.scaleSize(80)
+    }
+});
 
 //加载数据  2进行中 4已完成
 // _loadData = async (type_id = "") => {
