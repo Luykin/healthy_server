@@ -31,7 +31,7 @@ import SwitchSelector from "react-native-switch-selector";
 import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI, DATA_API} from "../../common/ScreenUtil";
 import NavigationUtil from "../../navigator/NavigationUtil";
 import Empty from "../../base/Empty";
-import {getIdCard} from "../../api";
+import {getIdCard, setToken} from "../../api";
 import {bindData, setGlobal} from "../../api/global";
 
 /*
@@ -62,8 +62,8 @@ export class HomeView extends Component {
         //this.lastX = this.state.left;
         //this.lastY = this.state.top;
         AsyncStorage.getItem('token').then(res => {
-            console.log(`token:` + res);
-            //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNaWQiOjYxLCJDdXN0b210b2tlbiI6IjdlZTZkOGEwMjBhNDJlZmYzODU0ZGI4NWZkYTEyZmNmLjBkYTg5ZDdmNTY1NmMzN2RmNjJkYzM2ZTQwNTg1YzFlIiwiZXhwIjoxNTk2NDIyMDA3LCJpc3MiOiJwaW5lLW51dC1oZWFsdGgifQ.27NqPGOBFvw_VOU3_ddzlIBryaHL3nTSs6YLPAqk6To
+            //console.log(`token:` + res);
+            setToken(res);
         })
 
     }
@@ -74,7 +74,6 @@ export class HomeView extends Component {
         //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
         // });
         let userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
-        console.log(userInfo, '用户信息');
         let switchVal = parseInt(await AsyncStorage.getItem("switchVal"));
 
         this.setState({

@@ -40,7 +40,7 @@ const items = [
 ];
 const placeholder = {"label": '请选择资质类型...', "value": null, "color": '#9EA0A4'};
 
-export class AddQualityView extends Component {
+export default class AddQualityView extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -408,54 +408,6 @@ export class AddQualityView extends Component {
         )
     }
 }
-
-//头样式
-const headerStyle = {
-    style: {
-        textAlign: 'center',
-        height: ScreenUtil.scaleSize(120),
-        borderBottomWidth: 0,
-        shadowOpacity: 0,
-        elevation: 0,
-        backgroundColor: "#FFF"
-    },
-    titleStyle: {
-        flex: 1,
-        textAlign: 'center',
-        color: '#000',
-        alignItems: "center",
-        fontSize: ScreenUtil.scaleSize(32)
-    }
-}
-export default AddQuality = createStackNavigator({
-    AddQualityH: {
-        screen: AddQualityView,
-        navigationOptions: ({navigation}) => ({
-            headerTitle: navigation.getParam("name", "上传资质信息"),
-            headerStyle: headerStyle.style,
-            headerTitleStyle: headerStyle.titleStyle,
-            headerTintColor: '#FFF',
-            headerLeft:
-                <TouchableOpacity onPress={() => {
-                    navigation.navigate("Main");
-                }}>
-                    <View style={{marginLeft: ScreenUtil.scaleSize(10), padding: ScreenUtil.scaleSize(10)}}>
-                        <Image resizeMode="contain" source={require('../../static/icons/16.png')}
-                               style={{width: ScreenUtil.scaleSize(30), height: ScreenUtil.scaleSize(30)}}/>
-                    </View>
-                </TouchableOpacity>
-            ,
-            headerRight:
-                <View/>
-        })
-    },
-
-}, {
-    initialRouteName: 'AddQualityH',
-    transitionConfig: () => ({
-        screenInterpolator: StackViewStyleInterpolator.forHorizontal,
-    })
-})
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',

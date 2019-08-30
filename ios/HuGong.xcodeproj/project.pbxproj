@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -40,6 +41,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* HuGongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HuGongTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */; };
 		A9C4935E034F468CA1E679ED /* libRNCViewpager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76820AB35ADD4C9A8EF0EEB1 /* libRNCViewpager.a */; };
 		AD1A3BD15E554B54A032912B /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0D41F696A4B389742BEDB /* libRNCAsyncStorage.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -51,7 +53,6 @@
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F1C87B8B0E742E2442A05ECA /* libPods-HuGong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 846B2F2C7F4E259660C806B3 /* libPods-HuGong.a */; };
-		874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = HuGong;
+		};
+		0421FE5623196A5F000CA13F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSpringScrollView;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -520,6 +528,8 @@
 		2D02E4901E0B4A5D006451C7 /* HuGong-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HuGong-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		32400BFBD810DB283479BEA1 /* Pods-HuGongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGongTests.debug.xcconfig"; path = "Target Support Files/Pods-HuGongTests/Pods-HuGongTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpringScrollView.xcodeproj; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; };
+		3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpringScrollView.a; sourceTree = "<group>"; };
 		45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
 		5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -543,8 +553,6 @@
 		E97B2DA400D443908CDF5224 /* RNCViewpager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCViewpager.xcodeproj; path = "../node_modules/@react-native-community/viewpager/ios/RNCViewpager.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; name = "RNSpringScrollView.xcodeproj"; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */ = {isa = PBXFileReference; name = "libRNSpringScrollView.a"; path = "libRNSpringScrollView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +681,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0421FE5323196A5F000CA13F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0421FE5723196A5F000CA13F /* libRNSpringScrollView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +808,7 @@
 				D409EC010FD042CB8D3B1987 /* libAirMaps.a */,
 				5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */,
 				6CE3719F89CD4E7A96C7DD59 /* libRNGestureHandler-tvOS.a */,
+				3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1031,7 +1048,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 95KS2ZM4JR;
+						DevelopmentTeam = PCGM6Z32P2;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1133,6 +1150,10 @@
 					ProductGroup = 182C000D22BB575A00B78A46 /* Products */;
 					ProjectRef = 6B3CA99ADEFB472DA77CC1E4 /* RNGestureHandler.xcodeproj */;
 				},
+				{
+					ProductGroup = 0421FE5323196A5F000CA13F /* Products */;
+					ProjectRef = 3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1178,6 +1199,13 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0421FE5723196A5F000CA13F /* libRNSpringScrollView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSpringScrollView.a;
+			remoteRef = 0421FE5623196A5F000CA13F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
@@ -1842,7 +1870,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 95KS2ZM4JR;
+				DEVELOPMENT_TEAM = PCGM6Z32P2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ImageCropPickerSDK",
@@ -1876,7 +1904,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95KS2ZM4JR;
+				DEVELOPMENT_TEAM = PCGM6Z32P2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ImageCropPickerSDK",

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Aug 30 22:13:27 CST 2019
+#Fri Aug 30 22:39:46 CST 2019
 60.set=ASSET
 52.set=ASSET
 53.base=/Users/mac/Documents/work/nurse/android/app/build/intermediates/transforms/mergeJniLibs/release/0

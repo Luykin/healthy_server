@@ -167,16 +167,25 @@ export default createStackNavigator({
     //我的资质
     MyQuality: {
         screen: MyQuality,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: () => {
+            return {
+                ...navigationOptions,
+                headerTitle: '我的资质',
+                headerRight: _renderRight(
+                    <TouchableOpacity onPress={() => {
+                        NavigationUtil.goPage({}, 'AddQuality');
+                    }}>
+                        <Text style={styles.rightText}>
+                            上传资质
+                        </Text>
+                    </TouchableOpacity>)
+            }
+        },
     },
     //上传资质
     AddQuality: {
         screen: AddQuality,
-        navigationOptions: ({navigation}) => ({
-            header: null
-        })
+        navigationOptions: {...navigationOptions, headerTitle: '上传资质'},
     }
 }, {
     initialRouteName: "Main",
