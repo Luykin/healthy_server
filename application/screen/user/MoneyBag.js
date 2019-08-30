@@ -18,6 +18,7 @@ import moment from 'moment';
 import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI} from "../../common/ScreenUtil";
 import Empty from "../../base/Empty";
 import DatePicker from "react-native-datepicker";
+import {walletQuery} from "../../api";
 
 /**
  "balance": "165.82",
@@ -340,25 +341,33 @@ export default class MoneyBag extends Component {
     }
 
     getMoneyBag = async (callback) => {
-        const self = this;
-        let token = await AsyncStorage.getItem("token");
-        fetch(SZ_API_URI + '/app/api/v1/wallet/query', {
-            headers: {
-                "token": token
-            }
-        }).then(res => res.json()).then(res => {
-            if (res.code === 200) {
-                // res.data.balance = 512.13
-                callback(res.data)
-            } else {
-                callback()
-                Alert.alert(res.msg || '查询钱包出错')
-            }
-        }).catch(e => {
-            callback()
-            Alert.alert('查询钱包出错')
-        })
-    }
+        // const self = this;
+        // let token = await AsyncStorage.getItem("token");
+        // fetch(SZ_API_URI + '/app/api/v1/wallet/query', {
+        //     headers: {
+        //         "token": token
+        //     }
+        // }).then(res => res.json()).then(res => {
+        //     console.log(res)
+        //     if (res.code === 200) {
+        //         console.log(res);
+        //         callback(res.data)
+        //     } else {
+        //         callback()
+        //         Alert.alert(res.msg || '查询钱包出错')
+        //     }
+        // }).catch(e => {
+        //     callback()
+        //     Alert.alert('查询钱包出错')
+        // })
+        const ret = await walletQuery(1, 10);
+        if (ret.code === 200) {
+            callback(ret.data)
+        } else {
+            callback();
+            Alert.alert(ret.msg || '查询钱包出错')
+        }
+    };
 
     render() {
         if (!this.state.loaded) {
@@ -380,10 +389,10 @@ export default class MoneyBag extends Component {
                     </View>
                 </View>
                 <View style={styles.titleLine}>
-                    <Text style={{color: "#FFFFFF", fontSize: ScreenUtil.scaleSize(36), fontWeight: "bold"}}>账单明细</Text>
+                    <Text style={{color: "#FFFFFF", fontSize: 15, fontWeight: "bold"}}>账单明细</Text>
                     <View style={styles.titleLineBottom}>
                         <DatePicker
-                            style={{width: 120, height: 40, lineHeight: 40}}
+                            style={{width: 120, height: 40}}
                             date={this.state.date}
                             mode="date"
                             placeholder={this.state.date}
@@ -438,23 +447,23 @@ export default class MoneyBag extends Component {
                             flexDirection: "row",
                             justifyContent: "space-between",
                             borderBottomWidth: 0.9,
-                            borderBottomColor: "#ccc",
+                            borderBottomColor: "#eee",
                             height: ScreenUtil.scaleSize(180),
                             alignItems: "center",
                             lineHeight: ScreenUtil.scaleSize(180)
                         }}>
                             <View style={{flex: 2}}>
                                 <Text style={{
-                                    fontSize: ScreenUtil.scaleSize(36),
+                                    fontSize: 15,
                                     fontWeight: "bold"
-                                }}>{item.description}</Text>
+                                }}>{item.description || '钱包提现'}</Text>
                                 <Text
-                                    style={{marginTop: ScreenUtil.scaleSize(10), fontSize: ScreenUtil.scaleSize(32)}}>{
+                                    style={{marginTop: 10, fontSize: 12, color: '#999'}}>{
                                     moment(item.createTime).format('YYYY-MM-DD HH:mm:ss')
                                 }</Text>
                             </View>
                             <Text
-                                style={{fontSize: ScreenUtil.scaleSize(32)}}>{item.categoryName == '充值' ? `+${item.amount}` : `-${item.amount}`}</Text>
+                                style={{fontSize: 16}}>{item.categoryName === '充值' ? `+${item.amount}` : `-${item.amount}`}</Text>
                         </View>
                     )}
                 />
