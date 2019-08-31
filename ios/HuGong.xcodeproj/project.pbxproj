@@ -12,6 +12,14 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* HuGongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HuGongTests.m */; };
+		0432A66B231A4636002E2E00 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66A231A4636002E2E00 /* RSKImageCropper.framework */; };
+		0432A66D231A4648002E2E00 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66C231A4648002E2E00 /* QBImagePicker.framework */; };
+		0432A671231A467A002E2E00 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66E231A467A002E2E00 /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0432A673231A467A002E2E00 /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66F231A467A002E2E00 /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		048B9B35231A52E1008CE11B /* BaiduMapViewManager.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B05231A52E1008CE11B /* BaiduMapViewManager.h */; };
+		048B9B39231A5308008CE11B /* BaiduMapView.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B36231A5308008CE11B /* BaiduMapView.h */; };
+		048B9B3A231A5308008CE11B /* BaseModule.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B37231A5308008CE11B /* BaseModule.h */; };
+		048B9B3B231A5308008CE11B /* GeolocationModule.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B38231A5308008CE11B /* GeolocationModule.h */; };
 		04B41452FF1A4D8ABF4E1C34 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE3719F89CD4E7A96C7DD59 /* libRNGestureHandler-tvOS.a */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -26,9 +34,7 @@
 		187BBB2D22BBCB4300FE6321 /* double-conversion.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 187BBB2C22BBCB4200FE6321 /* double-conversion.h */; };
 		187BBD9022BC7A7B00FE6321 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		189379C322C1E37B00369877 /* bundle in Resources */ = {isa = PBXBuildFile; fileRef = 189379C222C1E37B00369877 /* bundle */; };
-		18B387CD22BB68D6004ECA37 /* ImageCropPickerSDK in Resources */ = {isa = PBXBuildFile; fileRef = 18B3879F22BB68D6004ECA37 /* ImageCropPickerSDK */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */; };
@@ -47,12 +53,9 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ADFF22F3B3A04BEE88F46C0C /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */; };
 		B1F48597A63E489E8768D943 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D409EC010FD042CB8D3B1987 /* libAirMaps.a */; };
+		BDC98734E1B76CD69B51A9B9 /* Pods_HuGong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A15B2600ED324064499B1CB /* Pods_HuGong.framework */; };
 		D1D35E136C8E49F4870C3A07 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */; };
-		DB2B1F4497C4EA8EE2B836F2 /* libPods-HuGong-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C87EFCADAAC2B1C0E0D1D7E /* libPods-HuGong-tvOSTests.a */; };
-		E39BA5CC37BE2C3345340EC0 /* libPods-HuGongTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F050EA219FB7C4994D6751C /* libPods-HuGongTests.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		F1C87B8B0E742E2442A05ECA /* libPods-HuGong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 846B2F2C7F4E259660C806B3 /* libPods-HuGong.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,89 +213,12 @@
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
-		183BEEE822CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6FFB7B2992BB53405E6B771A5BA1E97D;
-			remoteInfo = DoubleConversion;
-		};
-		183BEEEA22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06489499588BFA8FD5E63DD6375CD533;
-			remoteInfo = Folly;
-		};
-		183BEEEC22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3CA7A9404CCDD6BA22C97F8348CE3209;
-			remoteInfo = glog;
-		};
 		183BEEEE22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E84347426B7BCC0C57BDE794B5A876C7;
 			remoteInfo = "Pods-HuGong";
-		};
-		183BEEF022CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E479D7B75943E59501CBCF9488CF7C76;
-			remoteInfo = "Pods-HuGong-tvOSTests";
-		};
-		183BEEF222CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9C20C9FA674A8A244A084F67A5EA7F1A;
-			remoteInfo = "Pods-HuGongTests";
-		};
-		183BEEF422CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 20D73B80DBEDC9935666EB05B502A6E8;
-			remoteInfo = QBImagePickerController;
-		};
-		183BEEF622CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C9708630F9D9C8C32EF0B3C91B9E469D;
-			remoteInfo = "QBImagePickerController-QBImagePicker";
-		};
-		183BEEF822CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5C8DC146BF135931BB833A84AD614447;
-			remoteInfo = "react-native-baidu-map";
-		};
-		183BEEFA22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3AEA4A114C08533A2C0F8E039A4C5EB9;
-			remoteInfo = RNImageCropPicker;
-		};
-		183BEEFC22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 580712ADE0DDE9601ED35B000EC802D6;
-			remoteInfo = RSKImageCropper;
-		};
-		183BEEFE22CCC01B0000D8C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1FA65622A09E4E5504F80B3610AB78F1;
-			remoteInfo = yoga;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -479,12 +405,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		189379BE22C1E19600369877 /* Embed Frameworks */ = {
+		0432A674231A467A002E2E00 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0432A671231A467A002E2E00 /* QBImagePicker.framework in Embed Frameworks */,
+				0432A673231A467A002E2E00 /* RSKImageCropper.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +429,16 @@
 		00E356EE1AD99517003FC87E /* HuGongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HuGongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* HuGongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HuGongTests.m; sourceTree = "<group>"; };
+		0432A64B231A419E002E2E00 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0432A64D231A41C0002E2E00 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0432A66A231A4636002E2E00 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = ImageCropPickerSDK/RSKImageCropper.framework; sourceTree = "<group>"; };
+		0432A66C231A4648002E2E00 /* QBImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QBImagePicker.framework; path = ImageCropPickerSDK/QBImagePicker.framework; sourceTree = "<group>"; };
+		0432A66E231A467A002E2E00 /* QBImagePicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QBImagePicker.framework; path = ImageCropPickerSDK/QBImagePicker.framework; sourceTree = "<group>"; };
+		0432A66F231A467A002E2E00 /* RSKImageCropper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSKImageCropper.framework; path = ImageCropPickerSDK/RSKImageCropper.framework; sourceTree = "<group>"; };
+		048B9B05231A52E1008CE11B /* BaiduMapViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaiduMapViewManager.h; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap/BaiduMapViewManager.h"; sourceTree = "<group>"; };
+		048B9B36231A5308008CE11B /* BaiduMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaiduMapView.h; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap/BaiduMapView.h"; sourceTree = "<group>"; };
+		048B9B37231A5308008CE11B /* BaseModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseModule.h; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap/BaseModule.h"; sourceTree = "<group>"; };
+		048B9B38231A5308008CE11B /* GeolocationModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GeolocationModule.h; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap/GeolocationModule.h"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HuGong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuGong.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -519,40 +457,32 @@
 		18937A3B22C1E67000369877 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		18937A3D22C1E67F00369877 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		18937A3F22C1E68B00369877 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		18B3879F22BB68D6004ECA37 /* ImageCropPickerSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ImageCropPickerSDK; path = "../node_modules/react-native-image-crop-picker/ios/ImageCropPickerSDK"; sourceTree = "<group>"; };
 		1DCCB9F902F34B7D8ACDFF5E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		1E5B81E8E7DBEF4D134402E5 /* Pods-HuGong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong.debug.xcconfig"; path = "Target Support Files/Pods-HuGong/Pods-HuGong.debug.xcconfig"; sourceTree = "<group>"; };
-		1F050EA219FB7C4994D6751C /* libPods-HuGongTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuGongTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C87EFCADAAC2B1C0E0D1D7E /* libPods-HuGong-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuGong-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* HuGong-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HuGong-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* HuGong-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HuGong-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		32400BFBD810DB283479BEA1 /* Pods-HuGongTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGongTests.debug.xcconfig"; path = "Target Support Files/Pods-HuGongTests/Pods-HuGongTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpringScrollView.xcodeproj; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; };
 		3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpringScrollView.a; sourceTree = "<group>"; };
 		45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
+		5A15B2600ED324064499B1CB /* Pods_HuGong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HuGong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6721FCDAE4AEE7FC1BE65820 /* Pods-HuGong-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-HuGong-tvOSTests/Pods-HuGong-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B3CA99ADEFB472DA77CC1E4 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		6CE3719F89CD4E7A96C7DD59 /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		76820AB35ADD4C9A8EF0EEB1 /* libRNCViewpager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCViewpager.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7958D720A0BE97C4A8624C70 /* Pods-HuGongTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGongTests.release.xcconfig"; path = "Target Support Files/Pods-HuGongTests/Pods-HuGongTests.release.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		844D1285280A4011B363EA2D /* RNCAsyncStorage.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCAsyncStorage.xcodeproj; path = "../node_modules/@react-native-community/async-storage/ios/RNCAsyncStorage.xcodeproj"; sourceTree = "<group>"; };
-		846B2F2C7F4E259660C806B3 /* libPods-HuGong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuGong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E0D41F696A4B389742BEDB /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B291E0E3218249F2969D8AD3 /* libimageCropPicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libimageCropPicker.a; sourceTree = "<group>"; };
 		C2FED6FC02554552A5AD3BBD /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		CF64C8E175D59CA67598611C /* Pods-HuGong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong.release.xcconfig"; path = "Target Support Files/Pods-HuGong/Pods-HuGong.release.xcconfig"; sourceTree = "<group>"; };
 		D409EC010FD042CB8D3B1987 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
-		DC81B6BD0BBAC08D9CD9F4FD /* Pods-HuGong-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-HuGong-tvOSTests/Pods-HuGong-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD19330E0B1B43558E96782E /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		E97B2DA400D443908CDF5224 /* RNCViewpager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCViewpager.xcodeproj; path = "../node_modules/@react-native-community/viewpager/ios/RNCViewpager.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,7 +491,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				E39BA5CC37BE2C3345340EC0 /* libPods-HuGongTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +498,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048B9B39231A5308008CE11B /* BaiduMapView.h in Frameworks */,
+				048B9B3A231A5308008CE11B /* BaseModule.h in Frameworks */,
+				048B9B3B231A5308008CE11B /* GeolocationModule.h in Frameworks */,
+				048B9B35231A52E1008CE11B /* BaiduMapViewManager.h in Frameworks */,
+				0432A66D231A4648002E2E00 /* QBImagePicker.framework in Frameworks */,
+				0432A66B231A4636002E2E00 /* RSKImageCropper.framework in Frameworks */,
 				187BBD9022BC7A7B00FE6321 /* libRCTImage.a in Frameworks */,
 				187BBB2D22BBCB4300FE6321 /* double-conversion.h in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
@@ -588,8 +523,8 @@
 				A9C4935E034F468CA1E679ED /* libRNCViewpager.a in Frameworks */,
 				B1F48597A63E489E8768D943 /* libAirMaps.a in Frameworks */,
 				D1D35E136C8E49F4870C3A07 /* libBVLinearGradient.a in Frameworks */,
-				F1C87B8B0E742E2442A05ECA /* libPods-HuGong.a in Frameworks */,
 				874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */,
+				BDC98734E1B76CD69B51A9B9 /* Pods_HuGong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +532,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
 				2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */,
 				2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */,
@@ -615,7 +549,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				DB2B1F4497C4EA8EE2B836F2 /* libPods-HuGong-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,7 +733,6 @@
 		182CFFDB22BB575800B78A46 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				18B3879F22BB68D6004ECA37 /* ImageCropPickerSDK */,
 				A0E0D41F696A4B389742BEDB /* libRNCAsyncStorage.a */,
 				45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */,
 				B291E0E3218249F2969D8AD3 /* libimageCropPicker.a */,
@@ -816,18 +748,7 @@
 		183BEED322CCC01B0000D8C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				183BEEE922CCC01B0000D8C2 /* libDoubleConversion.a */,
-				183BEEEB22CCC01B0000D8C2 /* libFolly.a */,
-				183BEEED22CCC01B0000D8C2 /* libglog.a */,
-				183BEEEF22CCC01B0000D8C2 /* libPods-HuGong.a */,
-				183BEEF122CCC01B0000D8C2 /* libPods-HuGong-tvOSTests.a */,
-				183BEEF322CCC01B0000D8C2 /* libPods-HuGongTests.a */,
-				183BEEF522CCC01B0000D8C2 /* libQBImagePickerController.a */,
-				183BEEF722CCC01B0000D8C2 /* QBImagePicker.bundle */,
-				183BEEF922CCC01B0000D8C2 /* libreact-native-baidu-map.a */,
-				183BEEFB22CCC01B0000D8C2 /* libRNImageCropPicker.a */,
-				183BEEFD22CCC01B0000D8C2 /* libRSKImageCropper.a */,
-				183BEEFF22CCC01B0000D8C2 /* libyoga.a */,
+				183BEEEF22CCC01B0000D8C2 /* Pods_HuGong.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -835,6 +756,12 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				048B9B36231A5308008CE11B /* BaiduMapView.h */,
+				048B9B37231A5308008CE11B /* BaseModule.h */,
+				048B9B38231A5308008CE11B /* GeolocationModule.h */,
+				048B9B05231A52E1008CE11B /* BaiduMapViewManager.h */,
+				0432A66C231A4648002E2E00 /* QBImagePicker.framework */,
+				0432A66A231A4636002E2E00 /* RSKImageCropper.framework */,
 				18937A3F22C1E68B00369877 /* libz.tbd */,
 				18937A3D22C1E67F00369877 /* libc++.tbd */,
 				18937A3B22C1E67000369877 /* libsqlite3.0.tbd */,
@@ -842,11 +769,8 @@
 				18937A3722C1E64200369877 /* SystemConfiguration.framework */,
 				187BBB2C22BBCB4200FE6321 /* double-conversion.h */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				846B2F2C7F4E259660C806B3 /* libPods-HuGong.a */,
-				2C87EFCADAAC2B1C0E0D1D7E /* libPods-HuGong-tvOSTests.a */,
-				1F050EA219FB7C4994D6751C /* libPods-HuGongTests.a */,
+				5A15B2600ED324064499B1CB /* Pods_HuGong.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -908,6 +832,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0432A66E231A467A002E2E00 /* QBImagePicker.framework */,
+				0432A66F231A467A002E2E00 /* RSKImageCropper.framework */,
 				13B07FAE1A68108700A75B9A /* HuGong */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HuGongTests */,
@@ -937,10 +863,6 @@
 			children = (
 				1E5B81E8E7DBEF4D134402E5 /* Pods-HuGong.debug.xcconfig */,
 				CF64C8E175D59CA67598611C /* Pods-HuGong.release.xcconfig */,
-				DC81B6BD0BBAC08D9CD9F4FD /* Pods-HuGong-tvOSTests.debug.xcconfig */,
-				6721FCDAE4AEE7FC1BE65820 /* Pods-HuGong-tvOSTests.release.xcconfig */,
-				32400BFBD810DB283479BEA1 /* Pods-HuGongTests.debug.xcconfig */,
-				7958D720A0BE97C4A8624C70 /* Pods-HuGongTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -961,7 +883,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "HuGongTests" */;
 			buildPhases = (
-				0527BF52EC68A1B47CD6F960 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -985,8 +906,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D140F50722CEC5F662A37D18 /* [CP] Copy Pods Resources */,
-				189379BE22C1E19600369877 /* Embed Frameworks */,
+				0432A674231A467A002E2E00 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1019,7 +939,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "HuGong-tvOSTests" */;
 			buildPhases = (
-				85AC86D6B97A7A0DAEB1322B /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -1069,6 +988,8 @@
 				English,
 				en,
 				Base,
+				"zh-HK",
+				"zh-Hans",
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -1313,88 +1234,11 @@
 			remoteRef = 182C002F22BB575A00B78A46 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		183BEEE922CCC01B0000D8C2 /* libDoubleConversion.a */ = {
+		183BEEEF22CCC01B0000D8C2 /* Pods_HuGong.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libDoubleConversion.a;
-			remoteRef = 183BEEE822CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEEB22CCC01B0000D8C2 /* libFolly.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libFolly.a;
-			remoteRef = 183BEEEA22CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEED22CCC01B0000D8C2 /* libglog.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libglog.a;
-			remoteRef = 183BEEEC22CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEEF22CCC01B0000D8C2 /* libPods-HuGong.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-HuGong.a";
+			fileType = wrapper.framework;
+			path = Pods_HuGong.framework;
 			remoteRef = 183BEEEE22CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEF122CCC01B0000D8C2 /* libPods-HuGong-tvOSTests.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-HuGong-tvOSTests.a";
-			remoteRef = 183BEEF022CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEF322CCC01B0000D8C2 /* libPods-HuGongTests.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libPods-HuGongTests.a";
-			remoteRef = 183BEEF222CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEF522CCC01B0000D8C2 /* libQBImagePickerController.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libQBImagePickerController.a;
-			remoteRef = 183BEEF422CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEF722CCC01B0000D8C2 /* QBImagePicker.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = QBImagePicker.bundle;
-			remoteRef = 183BEEF622CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEF922CCC01B0000D8C2 /* libreact-native-baidu-map.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libreact-native-baidu-map.a";
-			remoteRef = 183BEEF822CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEFB22CCC01B0000D8C2 /* libRNImageCropPicker.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNImageCropPicker.a;
-			remoteRef = 183BEEFA22CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEFD22CCC01B0000D8C2 /* libRSKImageCropper.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRSKImageCropper.a;
-			remoteRef = 183BEEFC22CCC01B0000D8C2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		183BEEFF22CCC01B0000D8C2 /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = 183BEEFE22CCC01B0000D8C2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2D16E6721FA4F8DC00B85C8A /* libRCTBlob-tvOS.a */ = {
@@ -1588,7 +1432,6 @@
 			files = (
 				189379C322C1E37B00369877 /* bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				18B387CD22BB68D6004ECA37 /* ImageCropPickerSDK in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1597,7 +1440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1624,28 +1466,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		0527BF52EC68A1B47CD6F960 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HuGongTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1681,50 +1501,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		85AC86D6B97A7A0DAEB1322B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-HuGong-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D140F50722CEC5F662A37D18 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HuGong/Pods-HuGong-resources.sh",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController/QBImagePicker.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QBImagePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HuGong/Pods-HuGong-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1784,6 +1560,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				13B07FB21A68108700A75B9A /* Base */,
+				0432A64B231A419E002E2E00 /* zh-HK */,
+				0432A64D231A41C0002E2E00 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			path = HuGong;
@@ -1794,7 +1572,6 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32400BFBD810DB283479BEA1 /* Pods-HuGongTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1831,7 +1608,6 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7958D720A0BE97C4A8624C70 /* Pods-HuGongTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1871,10 +1647,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = PCGM6Z32P2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ImageCropPickerSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1887,6 +1661,18 @@
 				);
 				INFOPLIST_FILE = HuGong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RSKImageCropper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-baidu-map\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
+					"\"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/thirdlibs\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1905,10 +1691,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PCGM6Z32P2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ImageCropPickerSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
@@ -1921,6 +1705,18 @@
 				);
 				INFOPLIST_FILE = HuGong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/QBImagePickerController\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNImageCropPicker\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RSKImageCropper\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/glog\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-baidu-map\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/yoga\"",
+					"\"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/thirdlibs\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2016,7 +1812,6 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC81B6BD0BBAC08D9CD9F4FD /* Pods-HuGong-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2057,7 +1852,6 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6721FCDAE4AEE7FC1BE65820 /* Pods-HuGong-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2142,7 +1936,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2188,7 +1982,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

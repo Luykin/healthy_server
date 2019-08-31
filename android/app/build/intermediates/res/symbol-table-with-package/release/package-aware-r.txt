@@ -749,7 +749,6 @@ drawable application_static_icons_33
 drawable application_static_icons_34
 drawable application_static_icons_35
 drawable application_static_icons_37
-drawable application_static_icons_add
 drawable application_static_icons_bottom
 drawable application_static_icons_card1
 drawable application_static_icons_card2

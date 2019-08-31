@@ -56,20 +56,20 @@
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/drawable-xhdpi-v4/abc_list_selector_disabled_holo_light.9.png"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/9106cc38e028134eb7f05a791305b802/res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
-        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/9106cc38e028134eb7f05a791305b802/res/drawable-xhdpi-v4/googleg_disabled_color_18.png"
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/drawable-xxhdpi-v4/abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable_abc_item_background_holo_dark.xml.flat",
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/9106cc38e028134eb7f05a791305b802/res/drawable-xhdpi-v4/googleg_disabled_color_18.png"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout-v26_abc_screen_toolbar.xml.flat",
@@ -80,12 +80,12 @@
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1b15093487312af7f628c38a37c52a59/res/drawable-xxhdpi-v4/ucrop_ic_rotate.png"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout-watch-v20_abc_alert_dialog_button_bar_material.xml.flat",
-        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
-    },
-    {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-mdpi_application_static_icons_15.png.flat",
         "source": "/Users/mac/Documents/work/nurse/android/app/build/generated/res/react/release/drawable-mdpi/application_static_icons_15.png"
+    },
+    {
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout-watch-v20_abc_alert_dialog_button_bar_material.xml.flat",
+        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_abc_dialog_title_material.xml.flat",
@@ -108,20 +108,20 @@
         "source": "/Users/mac/Documents/work/nurse/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnativedatepicker_date_icon.png"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/xml_update_file_provider.xml.flat",
-        "source": "/Users/mac/Documents/work/nurse/android/app/src/main/res/xml/update_file_provider.xml"
-    },
-    {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/xml_network_security_config.xml.flat",
         "source": "/Users/mac/Documents/work/nurse/android/app/src/main/res/xml/network_security_config.xml"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_ucrop_layout_rotate_wheel.xml.flat",
-        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1b15093487312af7f628c38a37c52a59/res/layout/ucrop_layout_rotate_wheel.xml"
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/xml_update_file_provider.xml.flat",
+        "source": "/Users/mac/Documents/work/nurse/android/app/src/main/res/xml/update_file_provider.xml"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-mdpi_application_static_icons_06.png.flat",
         "source": "/Users/mac/Documents/work/nurse/android/app/build/generated/res/react/release/drawable-mdpi/application_static_icons_06.png"
+    },
+    {
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_ucrop_layout_rotate_wheel.xml.flat",
+        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1b15093487312af7f628c38a37c52a59/res/layout/ucrop_layout_rotate_wheel.xml"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -176,12 +176,12 @@
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/fa28f43193f5c9ee627cf20e58fd10a9/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_amu_info_window.xml.flat",
-        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/3e081507f9becff81128060df1050697/res/layout/amu_info_window.xml"
-    },
-    {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/raw_amu_ground_overlay.kml.flat",
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/3e081507f9becff81128060df1050697/res/raw/amu_ground_overlay.kml"
+    },
+    {
+        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_amu_info_window.xml.flat",
+        "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/3e081507f9becff81128060df1050697/res/layout/amu_info_window.xml"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_select_dialog_item_material.xml.flat",
@@ -850,10 +850,6 @@
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/color_abc_background_cache_hint_selector_material_dark.xml.flat",
         "source": "/Users/mac/.gradle/caches/transforms-2/files-2.1/1e70889c62029d5f0e184ed1517f25e5/res/color/abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/drawable-mdpi_application_static_icons_add.png.flat",
-        "source": "/Users/mac/Documents/work/nurse/android/app/build/generated/res/react/release/drawable-mdpi/application_static_icons_add.png"
     },
     {
         "merged": "/Users/mac/Documents/work/nurse/android/app/build/intermediates/res/merged/release/layout_layout_marker.xml.flat",

@@ -1,47 +1,4 @@
 platform :ios, '9.0'
 target 'HuGong' do
-pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'Core',
-    'CxxBridge',
-    'DevSupport', 
-    'RCTText',
-    'RCTNetwork',
-    'RCTWebSocket', 
-    'RCTAnimation',
-    'RCTActionSheet',
-    'RCTGeolocation',
-    'RCTImage',
-    'RCTLinkingIOS',
-    'RCTSettings',
-    'RCTVibration'
-  ]
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-
-  pod 'react-native-baidu-map', :podspec => '../node_modules/react-native-baidu-map/ios/react-native-baidu-map.podspec'
-
-  pod 'RNImageCropPicker', :path =>  '../node_modules/react-native-image-crop-picker'
-
-    target 'HuGong-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-
-      pod 'Picker', :path => '../node_modules/react-native-picker'
-
-    end
-
-    target 'HuGongTests' do
-    inherit! :search_paths
-    # Pods for testing
-    end
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    if target.name == "React"
-      target.remove_from_project
-    end
-  end
+    use_frameworks!
 end
