@@ -158,13 +158,13 @@ export default class Setting extends Component {
                 </View>
                 <TouchableOpacity style={[styles.view, {/*borderBottomWidth:1,borderBottomColor:"#ccc",*/}]}
                                   onPress={() => {
-                                      if (!this.state.cardInfo || !this.state.cardInfo.IdNum) {
+                                      if (!this.state.newCardInfo || !this.state.newCardInfo.userIdCard) {
                                           NavigationUtil.goPage({}, 'UserDetail');
                                       }
                                   }}>
                     <Text style={styles.label}>身份证号</Text>
                     <View style={styles.inputBlock}>
-                        <Text>{this.state.cardInfo && this.state.cardInfo.IdNum ? this.state.cardInfo.IdNum : '还未填写'}</Text>
+                        <Text>{ (this.state.newCardInfo && this.state.newCardInfo.userIdCard) ? this.state.cardInfo.userIdCard : '还未填写'}</Text>
                         <Image resizeMode="contain" source={require('../../static/icons/right.png')}
                                style={styles.inputImg}/>
                     </View>

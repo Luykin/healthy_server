@@ -123,3 +123,9 @@ export function addIdCardImg(userName, idCardImg1, idCardImg2) {
     };
     return netAxios(`${SZ_API_URI}/app/api/v1/server/idcardimg/add`, data, 'post')
 }
+
+// 获取身份证信息
+export function getIdCardInfo() {
+    let data = {};
+    return netAxios(`${SZ_API_URI}/app/api/v1/member/idcard/query`, data, 'get')
+}

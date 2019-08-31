@@ -15,4 +15,6 @@ target 'HuGong' do
       pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
       pod 'react-native-baidu-map', :podspec => '../node_modules/react-native-baidu-map/ios/react-native-baidu-map.podspec'
+  pod 'Picker', :path => '../node_modules/react-native-picker'
+
 end

@@ -144,7 +144,6 @@ export default class MyOrder extends Component {
         return (
             <View style={{flex: 1}}>
                 <ScrollableTabView
-                    style={{marginTop: 20}}
                     initialPage={0}
                     tabBarInactiveTextColor={'#999999'}
                     tabBarActiveTextColor={"#FF7B21"}

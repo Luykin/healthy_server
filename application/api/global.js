@@ -5,6 +5,7 @@ let localObj = {};
 let global = {
     token: null,
     cardInfo: null,
+    newCardInfo: null,
     wallet: {
         balance: 0,
         income: 0,

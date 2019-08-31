@@ -24,14 +24,14 @@ import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/view
 
 import CardView from 'react-native-cardview';
 import LinearGradient from 'react-native-linear-gradient';
-// import { MapView, MapTypes, Geolocation, Overlay } from 'react-native-baidu-map';
+import { MapView, MapTypes, Geolocation, Overlay } from 'react-native-baidu-map';
 
 import SwitchSelector from "react-native-switch-selector";
 
 import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI, DATA_API} from "../../common/ScreenUtil";
 import NavigationUtil from "../../navigator/NavigationUtil";
 import Empty from "../../base/Empty";
-import {getIdCard, setToken} from "../../api";
+import {getIdCard, getIdCardInfo, setToken} from "../../api";
 import {bindData, setGlobal} from "../../api/global";
 
 /*
@@ -57,7 +57,8 @@ export class HomeView extends Component {
             switchVal: 1,
             order: {},
             products: {},
-            cardInfo: bindData('cardInfo', this)
+            cardInfo: bindData('cardInfo', this),
+            newCardInfo: bindData('newCardInfo', this)
         };
         //this.lastX = this.state.left;
         //this.lastY = this.state.top;
@@ -118,16 +119,17 @@ export class HomeView extends Component {
         );
         this._getLocal();
         this._getIdCard();
+        this._getIdCardInfo();
         //NavigationUtil.goPage({}, 'UserDetail')
     }
 
-    async _getIdCard() {
-        const ret = await getIdCard();
-        if(ret.code === 200) {
-            console.log(ret.data);
-            setGlobal('cardInfo', ret.data, () => {
+    async _getIdCardInfo() {
+        const ret = await getIdCardInfo();
+        if(ret.code === 200 && ret.data && ret.data.data) {
+            setGlobal('newCardInfo', ret.data.data, () => {
+                console.log(this.state.newCardInfo)
                 try {
-                    if(!this.state.cardInfo || !this.state.cardInfo.IdNum) {
+                    if(!this.state.newCardInfo || !this.state.newCardInfo.userIdCard) {
                         this.setState({
                             modalVisible: true
                         })
@@ -135,30 +137,48 @@ export class HomeView extends Component {
                 } catch (e) {
                     console.log(e)
                 }
+            })
+        }
+    }
+
+    async _getIdCard() {
+        const ret = await getIdCard();
+        if(ret.code === 200) {
+            console.log(ret.data);
+            setGlobal('cardInfo', ret.data, () => {
             });
         }
     }
 
-    //获取经伟度
-    _getLocal() {
-        // console.log('-----+++++=')
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                console.log(position, '地址');
-                if (!position.coords.latitude || !position.coords.longitude) {
-                    Alert.alert("请检查GPS是否开启");
-                    return;
-                }
-                this.setState({
-                    lat: position.coords.latitude,
-                    lon: position.coords.longitude
-                })
-            },
-            (error) => {
-                //reject(error);
-            },
-            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-        )
+    // //获取经伟度
+    // _getLocal() {
+    //     navigator.geolocation.getCurrentPosition(
+    //         (position) => {
+    //             console.log(position, '地址');
+    //             if (!position.coords.latitude || !position.coords.longitude) {
+    //                 Alert.alert("请检查GPS是否开启");
+    //                 return;
+    //             }
+    //             this.setState({
+    //                 lat: position.coords.latitude,
+    //                 lon: position.coords.longitude
+    //             })
+    //         },
+    //         (error) => {
+    //             //reject(error);
+    //         },
+    //         {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    //     )
+    // }
+
+    async _getLocal() {
+        const ret = await Geolocation.getCurrentPosition();
+        if(ret.latitude) {
+            this.setState({
+                lat: ret.latitude,
+                lon: ret.longitude
+            })
+        }
     }
 
     /*
@@ -288,14 +308,6 @@ export class HomeView extends Component {
         });
     }
 
-    renderLeftActions() {
-        return (
-            <View>
-                <Text>aaa</Text>
-            </View>
-        )
-    }
-
     //护工不接此单
     async _cancelLayer() {
         let token = await AsyncStorage.getItem("token");
@@ -337,6 +349,7 @@ export class HomeView extends Component {
             }
         }).then(res => res.json())
             .then(resJson => {
+                console.log(resJson);
                 this._getWorkingJub(user);
                 this.setState({
                     newOrderVisible: false
@@ -566,15 +579,9 @@ export class HomeView extends Component {
     }
 
     async _updateModel(val, index) {
-//        let data = new FormData();
-//        data.append("sid",this.state.data_layer_uid);
-//        data.append("longitude",this.state.lon);
-//        data.append("latitude",this.state.lat);
-//        data.append("status",val);
-
         let token = await AsyncStorage.getItem("token");
 
-        if (this.state.lon == 0 || this.state.lat == 0) {
+        if (!this.state.lon || !this.state.lat) {
             this._getLocal();
         }
         const url = SZ_API_URI + "app/api/v1/worker/state/" + this.state.lon + "/" + this.state.lat + "/" + val;
@@ -661,19 +668,28 @@ export class HomeView extends Component {
                         }}
                         renderItem={({item, index}) => (
                             <TouchableOpacity onPress={() => {
-
-                                navigate("OrderDetail", {
-                                    id: item.orderId,
-                                    add: item.address,
-                                    phone: item.contactPhone,
-                                    time: item.appointTime,
-                                    user: item.contactPerson,
-                                    remark: item.remark,
-                                    lat: this.state.lat,
-                                    lon: this.state.lon,
-                                    cuslat: item.latitude,
-                                    cuslon: item.longitude,
-                                });
+                                // console.log(item, 'dddd')
+                                // navigate("OrderDetail", {
+                                //     id: item.orderId,
+                                //     add: item.address,
+                                //     phone: item.contactPhone,
+                                //     time: item.appointTime,
+                                //     user: item.contactPerson,
+                                //     remark: item.remark,
+                                //     lat: this.state.lat,
+                                //     lon: this.state.lon,
+                                //     cuslat: item.latitude,
+                                //     cuslon: item.longitude,
+                                // });
+                                if (!this.state.lat) {
+                                    Alert.alert('正在定位请稍后,请确保打开gps');
+                                    return false
+                                }
+                                NavigationUtil.goPage({...item, ...{
+                                        lat: this.state.lat,
+                                        lon: this.state.lon,
+                                    }
+                                }, 'OrderDetail')
                             }}>
 
                                 <CardView
