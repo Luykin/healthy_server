@@ -16,10 +16,6 @@
 		0432A66D231A4648002E2E00 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66C231A4648002E2E00 /* QBImagePicker.framework */; };
 		0432A671231A467A002E2E00 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66E231A467A002E2E00 /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0432A673231A467A002E2E00 /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0432A66F231A467A002E2E00 /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		048B9B35231A52E1008CE11B /* BaiduMapViewManager.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B05231A52E1008CE11B /* BaiduMapViewManager.h */; };
-		048B9B39231A5308008CE11B /* BaiduMapView.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B36231A5308008CE11B /* BaiduMapView.h */; };
-		048B9B3A231A5308008CE11B /* BaseModule.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B37231A5308008CE11B /* BaseModule.h */; };
-		048B9B3B231A5308008CE11B /* GeolocationModule.h in Frameworks */ = {isa = PBXBuildFile; fileRef = 048B9B38231A5308008CE11B /* GeolocationModule.h */; };
 		04B41452FF1A4D8ABF4E1C34 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE3719F89CD4E7A96C7DD59 /* libRNGestureHandler-tvOS.a */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -46,6 +42,7 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* HuGongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HuGongTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
+		3294932072985461B92CF28D /* libPods-HuGong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215424CCFD71CF4B5E115FB5 /* libPods-HuGong.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */; };
 		A9C4935E034F468CA1E679ED /* libRNCViewpager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76820AB35ADD4C9A8EF0EEB1 /* libRNCViewpager.a */; };
@@ -53,7 +50,6 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		ADFF22F3B3A04BEE88F46C0C /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */; };
 		B1F48597A63E489E8768D943 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D409EC010FD042CB8D3B1987 /* libAirMaps.a */; };
-		BDC98734E1B76CD69B51A9B9 /* Pods_HuGong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A15B2600ED324064499B1CB /* Pods_HuGong.framework */; };
 		D1D35E136C8E49F4870C3A07 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
@@ -459,13 +455,13 @@
 		18937A3F22C1E68B00369877 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		1DCCB9F902F34B7D8ACDFF5E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		1E5B81E8E7DBEF4D134402E5 /* Pods-HuGong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong.debug.xcconfig"; path = "Target Support Files/Pods-HuGong/Pods-HuGong.debug.xcconfig"; sourceTree = "<group>"; };
+		215424CCFD71CF4B5E115FB5 /* libPods-HuGong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuGong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* HuGong-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HuGong-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* HuGong-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HuGong-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpringScrollView.xcodeproj; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; };
 		3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpringScrollView.a; sourceTree = "<group>"; };
 		45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
-		5A15B2600ED324064499B1CB /* Pods_HuGong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HuGong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6B3CA99ADEFB472DA77CC1E4 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
@@ -498,10 +494,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048B9B39231A5308008CE11B /* BaiduMapView.h in Frameworks */,
-				048B9B3A231A5308008CE11B /* BaseModule.h in Frameworks */,
-				048B9B3B231A5308008CE11B /* GeolocationModule.h in Frameworks */,
-				048B9B35231A52E1008CE11B /* BaiduMapViewManager.h in Frameworks */,
 				0432A66D231A4648002E2E00 /* QBImagePicker.framework in Frameworks */,
 				0432A66B231A4636002E2E00 /* RSKImageCropper.framework in Frameworks */,
 				187BBD9022BC7A7B00FE6321 /* libRCTImage.a in Frameworks */,
@@ -524,7 +516,7 @@
 				B1F48597A63E489E8768D943 /* libAirMaps.a in Frameworks */,
 				D1D35E136C8E49F4870C3A07 /* libBVLinearGradient.a in Frameworks */,
 				874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */,
-				BDC98734E1B76CD69B51A9B9 /* Pods_HuGong.framework in Frameworks */,
+				3294932072985461B92CF28D /* libPods-HuGong.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +762,7 @@
 				187BBB2C22BBCB4200FE6321 /* double-conversion.h */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				5A15B2600ED324064499B1CB /* Pods_HuGong.framework */,
+				215424CCFD71CF4B5E115FB5 /* libPods-HuGong.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -907,6 +899,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				0432A674231A467A002E2E00 /* Embed Frameworks */,
+				A8DBA27C4EE57C376660B540 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1501,6 +1494,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8DBA27C4EE57C376660B540 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HuGong/Pods-HuGong-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HuGong/Pods-HuGong-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
