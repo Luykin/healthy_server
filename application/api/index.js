@@ -105,3 +105,21 @@ export function setModesInfo(real_timemode, geo_range, accept_appoint, appoint_s
     }
     return netAxios(`${SZ_API_URI}/app/api/v1/worker/modes`, data, 'post')
 }
+
+
+// 添加身份信息
+export function addIdCard(realName, userIdCard, address) {
+    let data = {
+        realName, userIdCard, address
+    };
+    return netAxios(`${SZ_API_URI}/app/api/v1/server/idcard/add`, data, 'post')
+}
+
+
+// 添加身份证图片
+export function addIdCardImg(userName, idCardImg1, idCardImg2) {
+    let data = {
+        userName, idCardImg1, idCardImg2
+    };
+    return netAxios(`${SZ_API_URI}/app/api/v1/server/idcardimg/add`, data, 'post')
+}

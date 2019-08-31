@@ -15,12 +15,13 @@ import {
     Alert,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import {createStackNavigator} from 'react-navigation';
-import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/views/StackView/StackViewStyleInterpolator';
-
 import ImagePicker from 'react-native-image-crop-picker';
 
 import ScreenUtil, {deviceWidth, deviceHeight, SZ_API_URI} from "../../common/ScreenUtil";
+import comStyles from "../../assets/styles/comStyles";
+import {MapView, MapTypes, Geolocation, Overlay} from 'react-native-baidu-map';
+import NavigationUtil from "../../navigator/NavigationUtil";
+import {addIdCard} from "../../api";
 
 const Data = [{"id": 1}]
 /*
@@ -30,6 +31,7 @@ export default class UserDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            address: '',
             sex: 1,
             isVisible: false,
             zheng: false,
@@ -38,130 +40,41 @@ export default class UserDetail extends Component {
             id_img2: "",
             name: "",
             id_num: "",
-            id_card_img_z: require("../../static/icons/card1.png"),
-            id_card_img_f: require("../../static/icons/card2.png")
+            // id_card_img_z: require("../../static/icons/card1.png"),
+            // id_card_img_f: require("../../static/icons/card2.png")
         }
     }
 
     componentDidMount() {
-        // this._navListener = this.props.navigation.addListener('didFocus', () => {
-        //    StatusBar.setBarStyle('dark-content');
-        //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#FFFFFF');
-        // });
+        this.setAddress();
     }
 
     componentWillUnmount() {
-        // this._navListener.remove();
     }
 
-    _onPicker() {
-        ImagePicker.openPicker({
-            multiple: false,
-            cropping: true,
-            includeBase64: true
-        }).then(images => {
-            let img = "data:image/png;base64," + images.data;
-            if (this.state.zheng) {
-                this.setState({
-                    id_img1: images.data,
-                    isVisible: false,
-                    id_card_img_z: {uri: img}
-                })
-            }
-            if (this.state.fan) {
-                this.setState({
-                    id_img2: images.data,
-                    isVisible: false,
-                    id_card_img_f: {uri: img}
-                })
-            }
-
-            //this._postImg(images.data);
-
-            ImagePicker.clean();
-
-        });
-    }
-
-    _onCamera() {
-        ImagePicker.openCamera({
-            cropping: true,
-            width: 500,
-            height: 500,
-            includeExif: true,
-            //mediaType,
-        }).then(images => {
-            let file;
-            if (Platform.OS === 'android') {
-                file = images.path;
-            } else {
-                file = images.path.replace('file://', '');
-            }
-            if (this.state.zheng) {
-                this.setState({
-                    id_img1: file,
-                    isVisible: false,
-                    id_card_img_z: {uri: file, isStatic: true}
-                })
-            }
-            if (this.state.fan) {
-                this.setState({
-                    id_img2: images.data,
-                    isVisible: false,
-                    id_card_img_f: {uri: img}
-                })
-            }
-
-            //this._postImg(images.data);
-
-            ImagePicker.clean();
-        }).catch(e => console.log(e));
-    }
-
-    _cancel() {
-        this.setState({
-            isVisible: false,
-        });
-    }
-
-    //提交信息
-    async _submit() {
-        if (!this.state.name) {
-            Alert.alert("请输入用户姓名");
-            return;
-        }
-        if (!this.state.id_num) {
-            Alert.alert("请输入身份证号");
-            return;
-        }
-        if (!this.state.id_img1 || !this.state.id_img2) {
-            Alert.alert("请上传身份证照片");
-            return;
-        }
-        let token = await AsyncStorage.getItem("token");
-
-        let data = new FormData();
-        data.append("name", this.state.name);
-        data.append("id_num", this.state.id_num);
-        data.append("id_img1", this.state.id_img1);
-        data.append("id_img2", this.state.id_img2);
-        data.append("sex", this.state.sex);
-
-        fetch(SZ_API_URI + "app/api/v1/worker/idcard/addedit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "multipart/form-data",
-                "token": token
-            },
-            body: data
-        }).then(response => response.json())
-            .then(responseJson => {
-                if (responseJson.code === 200) {
-                    Alert.alert("信息上传成功，审核中。。。");
-                    return;
-                }
-                Alert.alert(responseJson.msg);
+    // const ret = await Geolocation.getCurrentPosition();
+    async setAddress() {
+        const ret = await Geolocation.getCurrentPosition();
+        if (ret.address) {
+            this.setState({
+                address: ret.address
             })
+        }
+    }
+
+    async _submit() {
+        if (!this.state.name || !this.state.id_num || !this.state.address) {
+            Alert.alert("请先完善信息");
+            return false
+        }
+        const ret = await addIdCard(this.state.name, this.state.id_num , this.state.address);
+        console.log(ret);
+        if (ret.code === 200) {
+            Alert.alert("提交成功");
+            NavigationUtil.goBack();
+        } else {
+            Alert.alert(ret.msg || "提交失败");
+        }
     }
 
     render() {
@@ -169,7 +82,6 @@ export default class UserDetail extends Component {
         return (
             <ScrollView style={[styles.container]} contentContainerStyle={{}}>
                 <View style={[styles.view, {
-                    marginTop: ScreenUtil.scaleSize(30),
                     borderBottomWidth: 1,
                     borderBottomColor: "#eee",
                 }]}>
@@ -210,7 +122,10 @@ export default class UserDetail extends Component {
                         />
                     </View>
                 </View>
-                <View style={[styles.view]}>
+                <View style={[styles.view, {
+                    borderBottomWidth: 1,
+                    borderBottomColor: "#eee",
+                }]}>
                     <Text style={styles.label}>性别</Text>
                     <View style={styles.inputBlock}>
                         <TouchableOpacity onPress={() => {
@@ -256,121 +171,99 @@ export default class UserDetail extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={{paddingHorizontal: ScreenUtil.scaleSize(30), marginTop: ScreenUtil.scaleSize(100)}}>
-                    <Text style={{
-                        color: "#000",
-                        fontSize: ScreenUtil.scaleSize(36),
-                        fontWeight: "bold"
-                    }}>上传手持身份证正反照片</Text>
-                    <View style={{
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        marginTop: ScreenUtil.scaleSize(30)
-                    }}>
-                        <TouchableOpacity onPress={() => {
-                            this.setState({
-                                isVisible: true,
-                                zheng: true,
-                                fan: false
-                            })
-                        }}>
-                            <ImageBackground
-                                resizeMode="contain"
-                                source={this.state.id_card_img_z}
-                                style={{
-                                    width: ScreenUtil.scaleSize(360),
-                                    height: ScreenUtil.scaleSize(280),
-                                    alignItems: "center",
-                                    justifyContent: "center"
-                                }}>
-                                <Image source={require("../../static/icons/30.png")}
-                                       style={{width: ScreenUtil.scaleSize(120), height: ScreenUtil.scaleSize(120)}}/>
-                            </ImageBackground>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity onPress={() => {
-                            this.setState({
-                                isVisible: true,
-                                zheng: false,
-                                fan: true
-                            })
-                        }}>
-                            <ImageBackground
-                                resizeMode="contain"
-                                source={this.state.id_card_img_f}
-                                style={{
-                                    width: ScreenUtil.scaleSize(360),
-                                    height: ScreenUtil.scaleSize(280),
-                                    alignItems: "center",
-                                    justifyContent: "center"
-                                }}>
-                                <Image source={require("../../static/icons/30.png")}
-                                       style={{width: ScreenUtil.scaleSize(120), height: ScreenUtil.scaleSize(120)}}/>
-                            </ImageBackground>
-                        </TouchableOpacity>
+                <View style={[styles.view, {
+                    borderBottomWidth: 1,
+                    borderBottomColor: "#eee",
+                }]}>
+                    <Text style={styles.label}>地区</Text>
+                    <View style={styles.inputBlock}>
+                        <TextInput
+                            value={this.state.address}
+                            style={styles.textInputType}
+                            allowFontScaling={true}
+                            clearButtonMode='while-editing'
+                            enablesReturnKeyAutomatically={true}
+                            keyboardType='default'
+                            editable={true}
+                            underlineColorAndroid="transparent"
+                            multiline={false}
+                            onChangeText={(text) => {
+                                this.setState({address: text})
+                            }}
+                            placeholder="请输入地区"
+                        />
                     </View>
                 </View>
-                <TouchableOpacity onPress={() => {
-                    this._submit()
+                <TouchableOpacity style={[styles.view, {
+                    borderBottomWidth: 1,
+                    borderBottomColor: "#eee",
+                }]} onPress={() => {
+                    NavigationUtil.goPage({}, 'idCardDetail')
                 }}>
-                    <View style={[styles.view, {marginTop: ScreenUtil.scaleSize(30), justifyContent: "center"}]}>
-                        <Text style={{
-                            width: "90%",
-                            textAlign: "center",
-                            height: ScreenUtil.scaleSize(100),
-                            lineHeight: ScreenUtil.scaleSize(100),
-                            color: "#fff",
-                            borderRadius: ScreenUtil.scaleSize(50),
-                            backgroundColor: "#0071ff",
-                            fontSize: ScreenUtil.scaleSize(32),
-                            fontWeight: "bold"
-                        }}>提交</Text>
+                    <Text style={styles.label}>上传身份证</Text>
+                    <View style={[styles.inputBlock, {justifyContent: 'flex-end'}]}>
+                        <Text>非必传></Text>
                     </View>
                 </TouchableOpacity>
+                {/*<View style={{paddingHorizontal: ScreenUtil.scaleSize(30), marginTop: ScreenUtil.scaleSize(100)}}>*/}
+                {/*    <Text style={{*/}
+                {/*        color: "#000",*/}
+                {/*        fontSize: ScreenUtil.scaleSize(36),*/}
+                {/*        fontWeight: "bold"*/}
+                {/*    }}>上传手持身份证正反照片</Text>*/}
+                {/*    <View style={{*/}
+                {/*        flexDirection: "row",*/}
+                {/*        justifyContent: "space-between",*/}
+                {/*        marginTop: ScreenUtil.scaleSize(30)*/}
+                {/*    }}>*/}
+                {/*        <TouchableOpacity onPress={() => {*/}
+                {/*            this.setState({*/}
+                {/*                isVisible: true,*/}
+                {/*                zheng: true,*/}
+                {/*                fan: false*/}
+                {/*            })*/}
+                {/*        }}>*/}
+                {/*            <ImageBackground*/}
+                {/*                resizeMode="contain"*/}
+                {/*                source={this.state.id_card_img_z}*/}
+                {/*                style={{*/}
+                {/*                    width: ScreenUtil.scaleSize(360),*/}
+                {/*                    height: ScreenUtil.scaleSize(280),*/}
+                {/*                    alignItems: "center",*/}
+                {/*                    justifyContent: "center"*/}
+                {/*                }}>*/}
+                {/*                <Image source={require("../../static/icons/30.png")}*/}
+                {/*                       style={{width: ScreenUtil.scaleSize(120), height: ScreenUtil.scaleSize(120)}}/>*/}
+                {/*            </ImageBackground>*/}
+                {/*        </TouchableOpacity>*/}
 
-                <Modal
-                    animationType="none"
-                    transparent={true}
-                    visible={this.state.isVisible}
-                    onRequestClose={() => {
-                        this.setState({
-                            isVisible: false,
-                            statusBarBck: "#FFF"
-                        });
-                    }}
-                >
-                    <View style={{
-                        justifyContent: "center",
-                        alignItems: "center",
-                        backgroundColor: "rgba(0, 0, 0, 0.5)",
-                        width: deviceWidth,
-                        height: deviceHeight
-                    }}>
-                        <View style={{
-                            padding: ScreenUtil.scaleSize(50),
-                            justifyContent: "space-between",
-                            width: ScreenUtil.scaleSize(500),
-                            height: ScreenUtil.scaleSize(300), backgroundColor: "#FFF"
-                        }}>
-                            <TouchableOpacity onPress={() => {
-                                this._onPicker();
-                            }}>
-                                <Text style={styles.fnt}>从相册选择</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => {
-                                this._onCamera();
-                            }}>
-                                <Text style={styles.fnt}>拍照</Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity onPress={() => {
-                                this._cancel();
-                            }}>
-                                <Text style={styles.fnt}>取消</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </Modal>
+                {/*        <TouchableOpacity onPress={() => {*/}
+                {/*            this.setState({*/}
+                {/*                isVisible: true,*/}
+                {/*                zheng: false,*/}
+                {/*                fan: true*/}
+                {/*            })*/}
+                {/*        }}>*/}
+                {/*            <ImageBackground*/}
+                {/*                resizeMode="contain"*/}
+                {/*                source={this.state.id_card_img_f}*/}
+                {/*                style={{*/}
+                {/*                    width: ScreenUtil.scaleSize(360),*/}
+                {/*                    height: ScreenUtil.scaleSize(280),*/}
+                {/*                    alignItems: "center",*/}
+                {/*                    justifyContent: "center"*/}
+                {/*                }}>*/}
+                {/*                <Image source={require("../../static/icons/30.png")}*/}
+                {/*                       style={{width: ScreenUtil.scaleSize(120), height: ScreenUtil.scaleSize(120)}}/>*/}
+                {/*            </ImageBackground>*/}
+                {/*        </TouchableOpacity>*/}
+                {/*    </View>*/}
+                {/*</View>*/}
+                <TouchableOpacity onPress={() => {
+                    this._submit();
+                }}>
+                    <Text style={[comStyles.commonBtn, {marginTop: 60}]}>提交</Text>
+                </TouchableOpacity>
             </ScrollView>
         )
     }
@@ -390,13 +283,22 @@ const styles = StyleSheet.create({
         lineHeight: ScreenUtil.scaleSize(120),
     },
     label: {
-        fontSize: ScreenUtil.scaleSize(32), fontWeight: "bold"
+        fontSize: 15,
+        fontWeight: "bold",
+        width: 80,
+        flexShrink: 0,
+        overflow: 'hidden'
     },
     inputBlock: {
+        flex: 1,
         flexDirection: "row",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
-        textAlign: "center"
+        textAlign: "center",
+    },
+    textInputType: {
+        flex: 1,
+        height: 40,
     },
     inputImg: {
         width: ScreenUtil.scaleSize(40),

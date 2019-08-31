@@ -164,7 +164,7 @@ export default class Setting extends Component {
                                   }}>
                     <Text style={styles.label}>身份证号</Text>
                     <View style={styles.inputBlock}>
-                        <Text>{this.state.cardInfo && this.state.cardInfo.IdNum ? this.state.cardInfo.IdNum : '还未认证'}</Text>
+                        <Text>{this.state.cardInfo && this.state.cardInfo.IdNum ? this.state.cardInfo.IdNum : '还未填写'}</Text>
                         <Image resizeMode="contain" source={require('../../static/icons/right.png')}
                                style={styles.inputImg}/>
                     </View>
@@ -197,13 +197,29 @@ export default class Setting extends Component {
                     </View>
                 </View>
                 */}
+                {/*<TouchableOpacity onPress={() => {*/}
+                {/*    this._updateApp();*/}
+                {/*}}>*/}
+                {/*    <View style={[styles.view, {marginTop: ScreenUtil.scaleSize(30)}]}>*/}
+                {/*        <Text style={styles.label}>检查版本</Text>*/}
+                {/*        <View style={styles.inputBlock}>*/}
+                {/*            <Text>{APP_VERSION}</Text>*/}
+                {/*        </View>*/}
+                {/*    </View>*/}
+                {/*</TouchableOpacity>*/}
                 <TouchableOpacity onPress={() => {
-                    this._updateApp();
+                    if (!this.state.cardInfo || !this.state.cardInfo.IdImg1) {
+                        NavigationUtil.goPage({}, 'idCardDetail')
+                    } else {
+                        Alert.alert('您已实名认证')
+                    }
                 }}>
                     <View style={[styles.view, {marginTop: ScreenUtil.scaleSize(30)}]}>
-                        <Text style={styles.label}>检查版本</Text>
+                        <Text style={styles.label}>实名认证</Text>
                         <View style={styles.inputBlock}>
-                            <Text>{APP_VERSION}</Text>
+                            <Text>{this.state.cardInfo && this.state.cardInfo.IdImg1 ? '已认证' : '还未认证'}</Text>
+                            <Image resizeMode="contain" source={require('../../static/icons/right.png')}
+                                   style={styles.inputImg}/>
                         </View>
                     </View>
                 </TouchableOpacity>

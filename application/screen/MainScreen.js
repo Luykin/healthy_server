@@ -31,6 +31,7 @@ import OrderDetail from "./order/OrderDetail";
 import AddQuality from "./user/AddQuality";
 import NavigationUtil from "../navigator/NavigationUtil";
 import CashSuc from "./user/CashSuc";
+import idCardDetail from "./user/idCardDetail"
 
 function _renderBack(url = require('../assets/image/back.png'), opacity = 1, pressFunction) {
     return (
@@ -156,6 +157,11 @@ export default createStackNavigator({
     UserDetail: {
         screen: UserDetail,
         navigationOptions: {...navigationOptions, headerTitle: '身份信息'},
+    },
+    //上传身份证
+    idCardDetail: {
+        screen: idCardDetail,
+        navigationOptions: {...navigationOptions, headerTitle: '上传证件'},
     },
     //订单详情
     OrderDetail: {

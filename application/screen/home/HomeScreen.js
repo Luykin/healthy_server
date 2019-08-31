@@ -24,7 +24,7 @@ import StackViewStyleInterpolator from 'react-navigation-stack/lib/commonjs/view
 
 import CardView from 'react-native-cardview';
 import LinearGradient from 'react-native-linear-gradient';
-//import { MapView, MapTypes, Geolocation, Overlay } from 'react-native-baidu-map';
+// import { MapView, MapTypes, Geolocation, Overlay } from 'react-native-baidu-map';
 
 import SwitchSelector from "react-native-switch-selector";
 
@@ -73,6 +73,8 @@ export class HomeView extends Component {
         //    StatusBar.setBarStyle('light-content');
         //    (Platform.OS === 'ios')?"":StatusBar.setBackgroundColor('#0071ff');
         // });
+        // const ret = await Geolocation.getCurrentPosition();
+        // console.log(ret, '???');
         let userInfo = JSON.parse(await AsyncStorage.getItem("userInfo"));
         let switchVal = parseInt(await AsyncStorage.getItem("switchVal"));
 
@@ -116,12 +118,13 @@ export class HomeView extends Component {
         );
         this._getLocal();
         this._getIdCard();
-        //NavigationUtil.goPage({}, 'CashSuc')
+        //NavigationUtil.goPage({}, 'UserDetail')
     }
 
     async _getIdCard() {
         const ret = await getIdCard();
         if(ret.code === 200) {
+            console.log(ret.data);
             setGlobal('cardInfo', ret.data, () => {
                 try {
                     if(!this.state.cardInfo || !this.state.cardInfo.IdNum) {
@@ -138,8 +141,10 @@ export class HomeView extends Component {
 
     //获取经伟度
     _getLocal() {
+        // console.log('-----+++++=')
         navigator.geolocation.getCurrentPosition(
             (position) => {
+                console.log(position, '地址');
                 if (!position.coords.latitude || !position.coords.longitude) {
                     Alert.alert("请检查GPS是否开启");
                     return;
@@ -206,6 +211,7 @@ export class HomeView extends Component {
             }
         }).then(response => response.json())
             .then(responseJson => {
+                console.log(responseJson)
                 if (!this.state.newOrderVisible) {
                     if (responseJson.code !== 200) {
                         // Alert.alert('获取新订单出现错误：'+responseJson.msg)
@@ -601,7 +607,7 @@ export class HomeView extends Component {
                 height={50}
                 onPress={value => {
                     let index = 1;
-                    if (value == 1) {
+                    if (value === 1) {
                         index = 0;
                     }
                     this._updateModel(value, index);
