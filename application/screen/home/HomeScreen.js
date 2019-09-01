@@ -15,7 +15,7 @@ import {
     Alert,
     PanResponder,
     //Animated,
-    //PermissionsAndroid
+    PermissionsAndroid
     //DeviceEventEmitter
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -117,7 +117,9 @@ export class HomeView extends Component {
             },
             10000
         );
-        this._getLocal();
+        this.requestLocationPermission(() => {
+            this._getLocal();
+        });
         this._getIdCard();
         this._getIdCardInfo();
         //NavigationUtil.goPage({}, 'UserDetail')
@@ -147,6 +149,31 @@ export class HomeView extends Component {
             console.log(ret.data);
             setGlobal('cardInfo', ret.data, () => {
             });
+        }
+    }
+
+
+    async requestLocationPermission(callback) {
+        try {
+            if (Platform.OS === 'ios') {
+                if (callback) {
+                    callback();
+                }
+            } else {
+                const granted = await PermissionsAndroid.requestMultiple(
+                    [PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+                        PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION]
+                );
+                if (granted['android.permission.ACCESS_FINE_LOCATION'] === PermissionsAndroid.RESULTS.GRANTED && granted['android.permission.ACCESS_COARSE_LOCATION'] === PermissionsAndroid.RESULTS.GRANTED) {
+                    if (callback) {
+                        callback();
+                    }
+                } else {
+                    Alert.alert('请打开定位权限')
+                }
+            }
+        } catch (err) {
+            console.warn(err);
         }
     }
 
