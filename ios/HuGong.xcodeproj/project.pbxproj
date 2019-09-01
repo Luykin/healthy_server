@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -44,6 +45,7 @@
 		3294932072985461B92CF28D /* libPods-HuGong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 215424CCFD71CF4B5E115FB5 /* libPods-HuGong.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		874177C8F75A4A7FBF1CDE61 /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */; };
+		9952DA6EF3F345CCADAF9FAE /* libRCTBaiduMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53852720999D4BDC887314CC /* libRCTBaiduMap.a */; };
 		A9C4935E034F468CA1E679ED /* libRNCViewpager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76820AB35ADD4C9A8EF0EEB1 /* libRNCViewpager.a */; };
 		AD1A3BD15E554B54A032912B /* libRNCAsyncStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E0D41F696A4B389742BEDB /* libRNCAsyncStorage.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -51,7 +53,6 @@
 		B1F48597A63E489E8768D943 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D409EC010FD042CB8D3B1987 /* libAirMaps.a */; };
 		D1D35E136C8E49F4870C3A07 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
-		9952DA6EF3F345CCADAF9FAE /* libRCTBaiduMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53852720999D4BDC887314CC /* libRCTBaiduMap.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,48 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNSpringScrollView;
+		};
+		0436A4E6231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6FFB7B2992BB53405E6B771A5BA1E97D;
+			remoteInfo = DoubleConversion;
+		};
+		0436A4E8231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06489499588BFA8FD5E63DD6375CD533;
+			remoteInfo = Folly;
+		};
+		0436A4EA231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3CA7A9404CCDD6BA22C97F8348CE3209;
+			remoteInfo = glog;
+		};
+		0436A4EC231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E7C341FA544E64E23E052A68E4A0A5E;
+			remoteInfo = React;
+		};
+		0436A4EE231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5C8DC146BF135931BB833A84AD614447;
+			remoteInfo = "react-native-baidu-map";
+		};
+		0436A4F0231B021100A453E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 183BEED222CCC01B0000D8C2 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FA65622A09E4E5504F80B3610AB78F1;
+			remoteInfo = yoga;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -456,12 +499,14 @@
 		1DCCB9F902F34B7D8ACDFF5E /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		1E5B81E8E7DBEF4D134402E5 /* Pods-HuGong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuGong.debug.xcconfig"; path = "Target Support Files/Pods-HuGong/Pods-HuGong.debug.xcconfig"; sourceTree = "<group>"; };
 		215424CCFD71CF4B5E115FB5 /* libPods-HuGong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuGong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C47C2E18784F2BB85A5A2F /* RCTBaiduMap.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBaiduMap.xcodeproj; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap.xcodeproj"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* HuGong-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HuGong-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* HuGong-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HuGong-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3514D9D1129B4E2E94A4ED88 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpringScrollView.xcodeproj; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; };
 		3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpringScrollView.a; sourceTree = "<group>"; };
 		45CE42DD752B4D4B9F1A6311 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
+		53852720999D4BDC887314CC /* libRCTBaiduMap.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBaiduMap.a; sourceTree = "<group>"; };
 		5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6B3CA99ADEFB472DA77CC1E4 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
@@ -479,8 +524,6 @@
 		DD19330E0B1B43558E96782E /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = imageCropPicker.xcodeproj; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; };
 		E97B2DA400D443908CDF5224 /* RNCViewpager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNCViewpager.xcodeproj; path = "../node_modules/@react-native-community/viewpager/ios/RNCViewpager.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		27C47C2E18784F2BB85A5A2F /* RCTBaiduMap.xcodeproj */ = {isa = PBXFileReference; name = "RCTBaiduMap.xcodeproj"; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		53852720999D4BDC887314CC /* libRCTBaiduMap.a */ = {isa = PBXFileReference; name = "libRCTBaiduMap.a"; path = "libRCTBaiduMap.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -736,6 +779,7 @@
 				5C1C050315CE43AB96FB630B /* libBVLinearGradient.a */,
 				6CE3719F89CD4E7A96C7DD59 /* libRNGestureHandler-tvOS.a */,
 				3577779AB6E24DCAA189AA84 /* libRNSpringScrollView.a */,
+				53852720999D4BDC887314CC /* libRCTBaiduMap.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -743,7 +787,13 @@
 		183BEED322CCC01B0000D8C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				183BEEEF22CCC01B0000D8C2 /* Pods_HuGong.framework */,
+				0436A4E7231B021100A453E3 /* libDoubleConversion.a */,
+				0436A4E9231B021100A453E3 /* libFolly.a */,
+				0436A4EB231B021100A453E3 /* libglog.a */,
+				183BEEEF22CCC01B0000D8C2 /* libPods-HuGong.a */,
+				0436A4ED231B021100A453E3 /* libReact.a */,
+				0436A4EF231B021100A453E3 /* libreact-native-baidu-map.a */,
+				0436A4F1231B021100A453E3 /* libyoga.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1126,6 +1176,48 @@
 			remoteRef = 0421FE5623196A5F000CA13F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0436A4E7231B021100A453E3 /* libDoubleConversion.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDoubleConversion.a;
+			remoteRef = 0436A4E6231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0436A4E9231B021100A453E3 /* libFolly.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFolly.a;
+			remoteRef = 0436A4E8231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0436A4EB231B021100A453E3 /* libglog.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libglog.a;
+			remoteRef = 0436A4EA231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0436A4ED231B021100A453E3 /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = 0436A4EC231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0436A4EF231B021100A453E3 /* libreact-native-baidu-map.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libreact-native-baidu-map.a";
+			remoteRef = 0436A4EE231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0436A4F1231B021100A453E3 /* libyoga.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoga.a;
+			remoteRef = 0436A4F0231B021100A453E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1231,10 +1323,10 @@
 			remoteRef = 182C002F22BB575A00B78A46 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		183BEEEF22CCC01B0000D8C2 /* Pods_HuGong.framework */ = {
+		183BEEEF22CCC01B0000D8C2 /* libPods-HuGong.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_HuGong.framework;
+			fileType = archive.ar;
+			path = "libPods-HuGong.a";
 			remoteRef = 183BEEEE22CCC01B0000D8C2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -1507,10 +1599,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HuGong/Pods-HuGong-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

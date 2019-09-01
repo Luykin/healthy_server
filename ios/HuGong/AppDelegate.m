@@ -11,6 +11,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "BaiduMapViewManager.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @implementation AppDelegate
 
@@ -21,6 +22,7 @@
                                                    moduleName:@"HuGong"
                                             initialProperties:nil];
   [BaiduMapViewManager initSDK:@"wXP8jFiZb8UXQGKw9e43x5aR7Bo73FrT"];
+  [AMapServices sharedServices].apiKey = @"2e832672b5e9a781451cdbb1876c4379";
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
